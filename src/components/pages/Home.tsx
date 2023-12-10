@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react'
 import {Button} from '@nextui-org/react'
-import ThemeSwitcher from '../components/ThemeSwitcher.tsx'
+import ThemeSwitcher from '../ThemeSwitcher.tsx'
 
 interface HomeProps {
 

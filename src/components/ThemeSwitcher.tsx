@@ -1,5 +1,5 @@
 import {FunctionComponent, useContext} from 'react'
-import {ThemeContext} from '../providers/ThemeProvider.tsx'
+import {ThemeContext} from './providers/ThemeProvider.tsx'
 
 const ThemeSwitcher: FunctionComponent = () => {
     const {theme, setTheme} = useContext(ThemeContext)

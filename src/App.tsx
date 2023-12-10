@@ -4,7 +4,7 @@ import Routing from './components/navigation/Routing.tsx'
 import {NextUIProvider} from '@nextui-org/react'
 import {useNavigate} from 'react-router-dom'
 import {useContext} from 'react'
-import {ThemeContext} from './providers/ThemeProvider.tsx'
+import {ThemeContext} from './components/providers/ThemeProvider.tsx'
 
 function App() {
     const navigate = useNavigate()
