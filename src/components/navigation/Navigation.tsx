@@ -31,7 +31,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
         "Log Out",
     ];
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen}>
+        <Navbar maxWidth="xl"  onMenuOpenChange={setIsMenuOpen}>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
