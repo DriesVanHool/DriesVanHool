@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "@nextui-org/react": "latest",
-    "framer-motion": "latest",
+    "@supabase/supabase-js": "^2.39.0",
     "autoprefixer": "^10.4.16",
+    "framer-motion": "latest",
     "postcss": "^8.4.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,6 +1,6 @@
 import {FunctionComponent, useState} from 'react'
 import {
-    Button,
+    Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger,
     Link,
     Navbar,
     NavbarBrand,
@@ -44,11 +44,64 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Features
-                    </Link>
-                </NavbarItem>
+                <Dropdown>
+                    <NavbarItem>
+                        <DropdownTrigger>
+                            <Button
+                                disableRipple
+                                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                                endContent={<Logo/>}
+                                radius="sm"
+                                variant="light"
+                            >
+                                Features
+                            </Button>
+                        </DropdownTrigger>
+                    </NavbarItem>
+                    <DropdownMenu
+                        aria-label="ACME features"
+                        className="w-[340px]"
+                        itemClasses={{
+                            base: "gap-4",
+                        }}
+                    >
+                        <DropdownItem
+                            key="autoscaling"
+                            description="ACME scales apps to meet user demand, automagically, based on load."
+                            startContent={<Logo/>}
+                        >
+                            Autoscaling
+                        </DropdownItem>
+                        <DropdownItem
+                            key="usage_metrics"
+                            description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+                            startContent={<Logo/>}
+                        >
+                            Usage Metrics
+                        </DropdownItem>
+                        <DropdownItem
+                            key="production_ready"
+                            description="ACME runs on ACME, join us and others serving requests at web scale."
+                            startContent={<Logo/>}
+                        >
+                            Production Ready
+                        </DropdownItem>
+                        <DropdownItem
+                            key="99_uptime"
+                            description="Applications stay on the grid with high availability and high uptime guarantees."
+                            startContent={<Logo/>}
+                        >
+                            +99% Uptime
+                        </DropdownItem>
+                        <DropdownItem
+                            key="supreme_support"
+                            description="Overcome any challenge with a supporting team ready to respond."
+                            startContent={<Logo/>}
+                        >
+                            +Supreme Support
+                        </DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
                 <NavbarItem isActive>
                     <Link href="#" aria-current="page">
                         Customers

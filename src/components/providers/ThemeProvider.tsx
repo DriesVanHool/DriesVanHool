@@ -15,8 +15,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
     theme: 'purple-dark',
     setTheme: () => {
         console.warn('No implementation had been provided for ThemeContext.setTheme()')
-    },
-
+    }
 });
 const ThemeProvider: FunctionComponent<ThemeProvider> = ({defaultTheme, children}) => {
     const [theme, setTheme] = useState<string>(defaultTheme)
