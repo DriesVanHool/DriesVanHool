@@ -1,6 +1,7 @@
 import {FunctionComponent} from 'react'
 import ErrorMessage from '../../utils/ErrorMessage.tsx'
 import {useGetPosts} from '../../../api/posts.ts'
+import Post from './Post.tsx'
 
 interface BlogProps {
 
@@ -20,22 +21,7 @@ const Blog: FunctionComponent<BlogProps> = () => {
     return (
         <>
             <div id="posts">
-                {
-                    posts?.map(post => (
-                        <div key={post.id}>
-                            <p>{post.title}</p>
-                            <p>{post.summary}</p>
-                            <p>{post.category?.name}</p>
-                            <ul>
-                                {
-                                    post.tags?.map(pt=>(
-                                        <li key={`tag${pt.tag?.id}`}>- {pt.tag?.name}</li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    ))
-                }
+                {posts?.map(post => (<Post post={post}/>))}
             </div>
         </>
 
