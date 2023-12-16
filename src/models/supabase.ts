@@ -3,6 +3,9 @@ import {ICustomer} from './ICustomer.ts'
 import {IProject} from './IProject.ts'
 import {ICategory} from './ICategory.ts'
 import {IProjectTag} from './IProjectTag.ts'
+import {IProjectCreate} from './IProjectCreate.ts'
+import {IPost} from './IPost.ts'
+import {IPostCreate} from './IPostCreate.ts'
 
 export type Json =
     | string
@@ -17,28 +20,8 @@ export interface IDatabase {
         Tables: {
             projects: {
                 Row: IProject
-                Insert: {
-                    id?: number
-                    name: string
-                    description?: string | null
-                    url?: string | null
-                    image?: string | null
-                    from?: string | null
-                    to?: string | null
-                    category_id?: number | null
-                    customer_id?: number | null
-                }
-                Update: {
-                    id?: number
-                    name: string
-                    description?: string | null
-                    url?: string | null
-                    image?: string | null
-                    from?: string | null
-                    to?: string | null
-                    category_id?: number | null
-                    customer_id?: number | null
-                }
+                Insert: IProjectCreate
+                Update: IProjectCreate
                 Relationships: [
                     {
                         foreignKeyName: 'projects_category_id_fkey'
@@ -55,43 +38,9 @@ export interface IDatabase {
                 ]
             }
             posts: {
-                Row: {
-                    id: number
-                    title: string
-                    summary: string | null
-                    text: string | null
-                    slug: string
-                    category_id: number | null
-                    createdAt: string | null
-                    updated_at: string | null
-                    medium: string | null
-                    linkedin: string | null
-                    youtube: string | null
-                }
-                Insert: {
-                    id: number
-                    title: string
-                    summary?: string | null
-                    text?: string | null
-                    slug: string
-                    category_id?: number | null
-                    updated_at?: string | null
-                    medium?: string | null
-                    linkedin?: string | null
-                    youtube?: string | null
-                }
-                Update: {
-                    id: number
-                    title: string
-                    summary?: string | null
-                    text?: string | null
-                    slug: string
-                    category_id?: number | null
-                    updated_at?: string | null
-                    medium?: string | null
-                    linkedin?: string | null
-                    youtube?: string | null
-                }
+                Row: IPost
+                Insert: IPostCreate
+                Update: IPostCreate
                 Relationships: [
                     {
                         foreignKeyName: 'posts_category_id_fkey'
@@ -103,52 +52,26 @@ export interface IDatabase {
             }
             categories: {
                 Row: ICategory
-                Insert: {
-                    id: number
-                    name: string
-                }
-                Update: {
-                    id: number
-                    name: string
-                }
+                Insert: ICategory
+                Update: ICategory
                 Relationships: []
             }
             customers: {
                 Row: ICustomer
-                Insert: {
-                    id: number
-                    name: string
-                    logo?: string | null
-                }
-                Update: {
-                    id: number
-                    name: string
-                    logo?: string | null
-                }
+                Insert: ICustomer
+                Update: ICustomer
                 Relationships: []
             }
             tags: {
                 Row: ITag
-                Insert: {
-                    id: number
-                    name: string
-                }
-                Update: {
-                    id: number
-                    name: string
-                }
+                Insert: ITag
+                Update: ITag
                 Relationships: []
             }
             projects_tags: {
                 Row: IProjectTag
-                Insert: {
-                    project_id: number
-                    tag_id: number
-                }
-                Update: {
-                    project_id: number
-                    tag_id: number
-                }
+                Insert: IProjectTag
+                Update: IProjectTag
                 Relationships: [
                     {
                         foreignKeyName: 'projects_tags_project_id_fkey'
