@@ -6,6 +6,7 @@ import {IProjectTag} from './IProjectTag.ts'
 import {IProjectCreate} from './IProjectCreate.ts'
 import {IPost} from './IPost.ts'
 import {IPostCreate} from './IPostCreate.ts'
+import {IPostTag} from './IPostTag.ts'
 
 export type Json =
     | string
@@ -81,6 +82,25 @@ export interface IDatabase {
                     },
                     {
                         foreignKeyName: 'projects_tags_tag_id_fkey'
+                        columns: ['tag_id']
+                        referencedRelation: 'tags'
+                        referencedColumns: ['id']
+                    },
+                ]
+            }
+            posts_tags: {
+                Row: IPostTag
+                Insert: IPostTag
+                Update: IPostTag
+                Relationships: [
+                    {
+                        foreignKeyName: 'posts_tags_post_id_fkey'
+                        columns: ['post_id']
+                        referencedRelation: 'posts'
+                        referencedColumns: ['id']
+                    },
+                    {
+                        foreignKeyName: 'posts_tags_tag_id_fkey'
                         columns: ['tag_id']
                         referencedRelation: 'tags'
                         referencedColumns: ['id']
