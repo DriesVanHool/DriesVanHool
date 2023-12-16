@@ -1,3 +1,9 @@
+import {ITag} from './ITag.ts'
+import {ICustomer} from './ICustomer.ts'
+import {IProject} from './IProject.ts'
+import {ICategory} from './ICategory.ts'
+import {IProjectTag} from './IProjectTag.ts'
+
 export type Json =
     | string
     | number
@@ -10,18 +16,7 @@ export interface IDatabase {
     public: {
         Tables: {
             projects: {
-                Row: {
-                    id: number
-                    name: string
-                    description: string | null
-                    url: string | null
-                    image: string | null
-                    from: string | null
-                    to: string | null
-                    createdAt: string | null
-                    category_id: number | null
-                    customer_id: number | null
-                }
+                Row: IProject
                 Insert: {
                     id?: number
                     name: string
@@ -107,10 +102,7 @@ export interface IDatabase {
                 ]
             }
             categories: {
-                Row: {
-                    id: number
-                    name: string
-                }
+                Row: ICategory
                 Insert: {
                     id: number
                     name: string
@@ -122,11 +114,7 @@ export interface IDatabase {
                 Relationships: []
             }
             customers: {
-                Row: {
-                    id: number
-                    name: string
-                    logo: string | null
-                }
+                Row: ICustomer
                 Insert: {
                     id: number
                     name: string
@@ -140,10 +128,7 @@ export interface IDatabase {
                 Relationships: []
             }
             tags: {
-                Row: {
-                    id: number
-                    name: string
-                }
+                Row: ITag
                 Insert: {
                     id: number
                     name: string
@@ -153,6 +138,31 @@ export interface IDatabase {
                     name: string
                 }
                 Relationships: []
+            }
+            projects_tags: {
+                Row: IProjectTag
+                Insert: {
+                    project_id: number
+                    tag_id: number
+                }
+                Update: {
+                    project_id: number
+                    tag_id: number
+                }
+                Relationships: [
+                    {
+                        foreignKeyName: 'projects_tags_project_id_fkey'
+                        columns: ['project_id']
+                        referencedRelation: 'projects'
+                        referencedColumns: ['id']
+                    },
+                    {
+                        foreignKeyName: 'projects_tags_tag_id_fkey'
+                        columns: ['tag_id']
+                        referencedRelation: 'tags'
+                        referencedColumns: ['id']
+                    },
+                ]
             }
         }
         Views: {

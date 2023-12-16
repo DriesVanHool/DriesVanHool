@@ -1,37 +1,45 @@
 import {FunctionComponent} from 'react'
-import {Button} from '@nextui-org/react'
-import ThemeSwitcher from '../ThemeSwitcher.tsx'
+import {useGetProjects} from '../../api/projects.ts'
+import ErrorMessage from '../utils/ErrorMessage.tsx'
 
 interface HomeProps {
 
 }
 
 const Home: FunctionComponent<HomeProps> = () => {
+
+    const {data: projects, isError: projectError} = useGetProjects()
+
+    if (projectError) {
+        return (
+            <ErrorMessage>
+                <p>Oei</p>
+            </ErrorMessage>
+        )
+    }
+
     return (
-        <div className="flex flex-wrap gap-4 items-center">
-            <ThemeSwitcher/>
-            <Button color="primary" variant="solid">
-                Solid
-            </Button>
-            <Button color="primary" variant="faded">
-                Faded
-            </Button>
-            <Button color="primary" variant="bordered">
-                Bordered
-            </Button>
-            <Button color="primary" variant="light">
-                Light
-            </Button>
-            <Button color="primary" variant="flat">
-                Flat
-            </Button>
-            <Button color="primary" variant="ghost">
-                Ghost
-            </Button>
-            <Button color="primary" variant="shadow">
-                Shadow
-            </Button>
-        </div>
+        <>
+            <div id="projects">
+                {
+                    projects?.map(project => (
+                        <div key={project.id}>
+                            <p>{project.name}</p>
+                            <p>{project.category?.name}</p>
+                            <p>{project.customer?.name}</p>
+                            <ul>
+                                {
+                                    project.tags?.map(pq=>(
+                                        <li key={`tag${pq.tag?.id}`}>- {pq.tag?.name}</li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    ))
+                }
+            </div>
+        </>
+
     )
 }
 
