@@ -8,13 +8,13 @@ import Footer from './components/navigation/Footer.tsx'
 function App() {
     const {theme} = useContext(ThemeContext)
   return (
-      <div className={`${theme} text-foreground bg-background relative flex flex-col h-screen`}>
+      <main className={`${theme} text-foreground bg-background relative flex flex-col h-screen`}>
           <Navigation/>
-          <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+          <div className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               <Routing/>
-          </main>
+          </div>
           <Footer/>
-      </div>
+      </main>
   )
 }
 
