@@ -1,5 +1,5 @@
 import {FunctionComponent, useContext} from 'react'
-import {ThemeContext} from './providers/ThemeProvider.tsx'
+import {ThemeContext} from '../providers/ThemeProvider.tsx'
 import {GoMoon, GoSun} from 'react-icons/go'
 
 const ThemeSwitcher: FunctionComponent = () => {
@@ -7,9 +7,9 @@ const ThemeSwitcher: FunctionComponent = () => {
     return (
         <div  className="text-primary text-xl cursor-pointer hover:text-secondary">
             {
-                theme==='light'?(
-                    <GoMoon onClick={() => setTheme('purple-dark')}/>
-                ):<GoSun onClick={() => setTheme('light')}/>
+                theme==='blue-light'?(
+                    <GoMoon onClick={() => setTheme('blue-dark')}/>
+                ):<GoSun onClick={() => setTheme('blue-light')}/>
             }
         </div>
     )

@@ -20,6 +20,9 @@ dependencies:
   framer-motion:
     specifier: latest
     version: 10.16.16(react-dom@18.2.0)(react@18.2.0)
+  framer-motion-ticker:
+    specifier: ^1.0.19
+    version: 1.0.19(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: ^8.4.32
     version: 8.4.32
@@ -4095,6 +4098,15 @@ packages:
 
   /fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
+    dev: false
+
+  /framer-motion-ticker@1.0.19(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-7c0DaD3rc36TsTEysT3R0bQlChqJuYydbPFgAJDMHVrZrsw+h7oWU3y32ErK8Nm5/LT1TdQYGymL1+btwwUIcw==}
+    dependencies:
+      framer-motion: 10.16.16(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+      - react-dom
     dev: false
 
   /framer-motion@10.16.16(react-dom@18.2.0)(react@18.2.0):

@@ -12,7 +12,7 @@ import {
 } from '@nextui-org/react'
 import Logo from '../icons/Logo.tsx'
 import ServiceDropdown from './ServiceDropdown.tsx'
-import ThemeSwitcher from '../ThemeSwitcher.tsx'
+import ThemeSwitcher from '../utils/ThemeSwitcher.tsx'
 import {IMenuItem} from '../../models/IMenuItem.ts'
 
 interface NavigationProps {
@@ -25,13 +25,13 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
     const menuItems: IMenuItem[] = [
         {
             title: "About",
-            ref: "/#about",
+            ref: "#about",
             isActive: false,
             icon: null
         },
         {
             title: "Projects",
-            ref: "/#projects",
+            ref: "#projects",
             isActive: false,
             icon: null
         },
