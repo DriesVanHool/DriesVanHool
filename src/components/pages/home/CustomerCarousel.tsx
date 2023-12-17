@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react'
 import Ticker from 'framer-motion-ticker'
-import {Image, Spacer} from '@nextui-org/react'
+import {Image} from '@nextui-org/react'
 import {CSSProperties} from 'styled-components'
 import {ICustomer} from '../../../models/ICustomer.ts'
 
@@ -29,9 +29,6 @@ const CustomerCarousel: FunctionComponent<CustomerCarouselProps> = ({customers})
                     ))}
                 </Ticker>
             </div>
-
-
-            <Spacer y={40} />
         </div>
 
         </>

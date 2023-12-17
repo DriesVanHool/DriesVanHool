@@ -42,7 +42,7 @@ const ServiceDropdown: FunctionComponent<ServiceDropDownMenuProps> = () => {
                 <DropdownTrigger>
                     <Button
                         disableRipple
-                        className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                        className="p-0 bg-transparent data-[hover=true]:bg-transparent text-xl"
                         endContent={<Logo/>}
                         radius="sm"
                         variant="light"

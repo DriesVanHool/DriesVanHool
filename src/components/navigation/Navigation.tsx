@@ -44,7 +44,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
     ];
 
     return (
-        <Navbar maxWidth="xl"  onMenuOpenChange={setIsMenuOpen}>
+        <Navbar maxWidth="xl" shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} className="mt-5">
             {/*Home/icon & mobile toggle*/}
             <NavbarContent>
                 <NavbarMenuToggle
@@ -61,7 +61,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 {menuItems.map((item, index) => (
                     <NavbarItem key={`${item.title}-${index}`} isActive={item.isActive}>
-                        <Link href={item.ref}>
+                        <Link className="text-xl" href={item.ref}>
                             {item.title}
                         </Link>
                     </NavbarItem>
@@ -74,13 +74,13 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
                     <ThemeSwitcher/>
                 </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="#contact" variant="flat">
+                    <Button className="text-xl" as={Link} color="primary" href="#contact" variant="flat">
                         Contact
                     </Button>
                 </NavbarItem>
             </NavbarContent>
             {/*Mobile menu items*/}
-            <NavbarMenu>
+            <NavbarMenu className="mt-10">
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`mobile${item.title}-${index}`}>
                         <Link

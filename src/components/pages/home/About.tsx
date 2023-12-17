@@ -1,6 +1,7 @@
 import {FunctionComponent} from 'react'
 import {CSSProperties} from 'styled-components'
 import {FaGithub, FaLinkedin} from 'react-icons/fa'
+import {motion} from 'framer-motion'
 
 interface AboutProps {
 
@@ -20,15 +21,26 @@ const About: FunctionComponent<AboutProps> = () => {
                     </div>
                     <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-                            <a href="#"><FaGithub /></a>
-                            <a href="#"><FaLinkedin /></a>
+                            <motion.a
+                                whileHover={{ scale: 1.2 }}
+                                href="#"
+                            >
+                                <FaGithub />
+                            </motion.a>
+
+                            <motion.a
+                                whileHover={{ scale: 1.2 }}
+                                href="#"
+                            >
+                                <FaLinkedin />
+                            </motion.a>
                         </div>
                     </div>
                 </div>
             <img         src="dries.png"
                          alt=""
-                         className="inset-0 -z-10 sm:block -mt-20"
                          style={mask}/>
+
         </div>
     )
 }

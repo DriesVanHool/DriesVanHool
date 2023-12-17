@@ -6,6 +6,7 @@ import About from './About.tsx'
 import Banner from './Banner.tsx'
 import ProjectGrid from './ProjectGrid.tsx'
 import CustomerCarousel from './CustomerCarousel.tsx'
+import Contact from './Contact.tsx'
 
 interface HomeProps {
 
@@ -57,7 +58,10 @@ const Home: FunctionComponent<HomeProps> = () => {
             <Spacer y={space} />
             <ProjectGrid projects={projects??[]}/>
             <Spacer y={space} />
+            <Contact/>
+            <Spacer y={space}/>
             <CustomerCarousel customers={customers}/>
+            <Spacer y={space}/>
         </>
 
     )

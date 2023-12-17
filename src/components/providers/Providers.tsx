@@ -19,7 +19,7 @@ const Providers: FunctionComponent<PropsWithChildren> = ({children}) => {
     return (
         <QueryClientProvider client={queryClient}>
             <NextUIProvider navigate={navigate}>
-                <ThemeProvider defaultTheme="green-dark">
+                <ThemeProvider defaultTheme="blue-dark">
                     {children}
                 </ThemeProvider>
             </NextUIProvider>

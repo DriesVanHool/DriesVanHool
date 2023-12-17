@@ -307,6 +307,104 @@ export default {
           },
         },
       },
+      "blue-yellow-dark":{
+        extend: "dark",
+        colors: {
+          background: "#0D1013", // Dark teal background
+          foreground: "#FFFAF0", // Light foreground for contrast
+          primary: {
+            50: "#FFFF80",   // Light yellow shades for primary text
+            100: "#FFFF66",
+            200: "#FFFF4D",
+            300: "#FFFF33",
+            400: "#FFFF1A",
+            500: "#FFFF00",   // Main yellow text color
+            600: "#E5E500",
+            700: "#CCCC00",
+            800: "#B2B200",
+            900: "#999900",
+            DEFAULT: "#FFFF00",  // Default main yellow text color
+            foreground: "#FFFAF0",
+          },
+          secondary: {
+            50: "#80A3FF",   // Light blue shades for secondary
+            100: "#668FFF",
+            200: "#4D7AFF",
+            300: "#3366FF",
+            400: "#1A52FF",
+            500: "#003EFF",  // Main teal background color
+            600: "#0036E5",
+            700: "#002CCE",
+            800: "#0022B7",
+            900: "#001AA1",
+            DEFAULT: "#003EFF",  // Default main teal background color
+            foreground: "#FFFAF0",
+          },
+          focus: "#FFFF1A", // Light yellow focus color
+        },
+        layout: {
+          disabledOpacity: "0.3",
+          radius: {
+            small: "4px",
+            medium: "6px",
+            large: "8px",
+          },
+          borderWidth: {
+            small: "1px",
+            medium: "2px",
+            large: "3px",
+          },
+        },
+      },
+      "blue-yellow-light":  {
+        extend: "light",
+        colors: {
+          background: "#FFF7E5", // Light yellow background
+          foreground: "#1A1A1A", // Dark foreground for contrast
+          primary: {
+            50: "#81B3FF",   // Light blue shades for primary text
+            100: "#669CFF",
+            200: "#4D85FF",
+            300: "#336EFF",
+            400: "#1A57FF",
+            500: "#0040FF",   // Main blue text color
+            600: "#0036E5",
+            700: "#002CCE",
+            800: "#0022B7",
+            900: "#001AA1",
+            DEFAULT: "#0040FF",  // Default main blue text color
+            foreground: "#1A1A1A",
+          },
+          secondary: {
+            50: "#FFECD9",   // Light yellow shades for secondary
+            100: "#FFDFB3",
+            200: "#FFD38D",
+            300: "#FFC666",
+            400: "#FFBA40",
+            500: "#FFAE1A",  // Main yellow background color
+            600: "#E59C00",
+            700: "#CC8A00",
+            800: "#B27900",
+            900: "#996700",
+            DEFAULT: "#FFAE1A",  // Default main yellow background color
+            foreground: "#1A1A1A",
+          },
+          focus: "#1A57FF", // Light blue focus color
+        },
+        layout: {
+          disabledOpacity: "0.3",
+          radius: {
+            small: "4px",
+            medium: "6px",
+            large: "8px",
+          },
+          borderWidth: {
+            small: "1px",
+            medium: "2px",
+            large: "3px",
+          },
+        },
+      },
       // ... custom themes
     },
   })]
