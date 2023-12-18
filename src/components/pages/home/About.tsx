@@ -20,7 +20,7 @@ const About: FunctionComponent<AboutProps> = () => {
                         <p className="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                     </div>
                     <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                        <div className="grid grid-cols-4 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white md:flex lg:gap-x-10">
                             <motion.a
                                 whileHover={{ scale: 1.2 }}
                                 href="#"
@@ -39,7 +39,10 @@ const About: FunctionComponent<AboutProps> = () => {
                 </div>
             <img         src="dries.png"
                          alt=""
-                         style={mask}/>
+                         style={mask}
+                        className="hidden sm:block"
+                        />
+
 
         </div>
     )

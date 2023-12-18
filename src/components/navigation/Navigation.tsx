@@ -74,7 +74,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
                     <ThemeSwitcher/>
                 </NavbarItem>
                 <NavbarItem>
-                    <Button className="text-xl" as={Link} color="primary" href="#contact" variant="flat">
+                    <Button className="text-xl" as={Link} color="primary" href="/#contact" variant="flat">
                         Contact
                     </Button>
                 </NavbarItem>
