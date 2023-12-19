@@ -12,7 +12,7 @@ const Routing: FunctionComponent = () => {
             <Route path={'/'} element={<Home/>}/>
             <Route path="/projects" element={<Outlet/>}>
                 <Route index element={<ProjectOverview/>}/>
-                <Route path=":name" element={<ProjectDetail/>}/>
+                <Route path=":slug" element={<ProjectDetail/>}/>
             </Route>
             <Route path="/blog" element={<Outlet/>}>
                 <Route index element={<Blog/>}/>

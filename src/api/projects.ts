@@ -10,10 +10,10 @@ export const useGetProjects = (): UseQueryResult<IProject[], Error> => {
     })
 }
 
-export const useGetProjectByTitle = (name: string | null): UseQueryResult<IProject, Error> => {
+export const useGetProjectBySlug = (slug: string | null): UseQueryResult<IProject, Error> => {
     return useQuery({
-        queryKey: ['projects', name],
-        queryFn: () => getPostByTitle({name}),
+        queryKey: ['projects', slug],
+        queryFn: () => getPostBySlug({slug}),
     })
 }
 
@@ -51,11 +51,11 @@ const getProjects = async (): Promise<IProject[]> => {
 }
 
 interface GetProjectByTitleParams {
-    name: string | null
+    slug: string | null
 }
 
 
-const getPostByTitle= async ({name}: GetProjectByTitleParams): Promise<IProject> => {
+const getPostBySlug= async ({slug}: GetProjectByTitleParams): Promise<IProject> => {
     const {error, data}  = await supabaseClient
         .from('projects')
         .select(`
@@ -76,7 +76,7 @@ const getPostByTitle= async ({name}: GetProjectByTitleParams): Promise<IProject>
               )
             )
         `)
-        .eq('name', name)
+        .eq('slug', slug)
         .single()
 
     if (error) {

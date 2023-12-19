@@ -2,15 +2,15 @@ import {FunctionComponent, Suspense} from 'react'
 import {useParams} from 'react-router-dom'
 import ErrorMessage from '../../utils/ErrorMessage.tsx'
 import LoadingPage from '../../utils/LoadingPage.tsx'
-import {useGetProjectByTitle} from '../../../api/projects.ts'
+import {useGetProjectBySlug} from '../../../api/projects.ts'
 
 interface ProjectDetailProps {
 
 }
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = () => {
-    const {name} = useParams()
-    const {data: project, isError: projectError} = useGetProjectByTitle(name as string)
+    const {slug} = useParams()
+    const {data: project, isError: projectError} = useGetProjectBySlug(slug as string)
 
     if (projectError) {
         return (

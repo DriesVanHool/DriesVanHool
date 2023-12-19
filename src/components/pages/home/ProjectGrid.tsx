@@ -40,8 +40,8 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
 
     const ImageCard = (project: IProject, style: string) => {
         return (
-            <Card className={`col-span-12 sm:col-span-4 h-[300px] ${style}`} onClick={()=>navigate(`/projects/${project.slug}`)}>
-                <ImageContainer>
+            <Card className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
+                <ImageContainer onClick={()=>navigate(`/projects/${project.slug}`)}>
                     <Image
                         isZoomed
                         isBlurred
