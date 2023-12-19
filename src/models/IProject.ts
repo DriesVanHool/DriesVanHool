@@ -8,6 +8,9 @@ export interface IProject{
     description: string | null
     url: string | null
     image: string | null
+    banner_image: string | null
+    slug: string
+    thumbnail: string | null
     from: string | null
     to: string | null
     createdAt: string | null
