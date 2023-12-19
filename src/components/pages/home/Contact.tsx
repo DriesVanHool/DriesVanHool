@@ -13,26 +13,6 @@ const Contact: FunctionComponent<ContactProps> = () => {
             <form className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
                 <Input
                     isClearable
-                    type="text"
-                    label="Email"
-                    variant="bordered"
-                    placeholder="Enter your email"
-                    defaultValue="junior@nextui.org"
-                    onClear={() => console.log("input cleared")}
-                    className="col-span-2 sm:col-span-1"
-                />
-                <Input
-                    isClearable
-                    type="text"
-                    label="Email"
-                    variant="bordered"
-                    placeholder="Enter your email"
-                    defaultValue="junior@nextui.org"
-                    onClear={() => console.log("input cleared")}
-                    className="col-span-2 sm:col-span-1"
-                />
-                <Input
-                    isClearable
                     type="email"
                     label="Email"
                     variant="bordered"
@@ -49,7 +29,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
                     disableAutosize
                     classNames={{
                         base: "col-span-2",
-                        input: "resize-y min-h-[40px]",
+                        input: "resize-y min-h-[200px]",
                     }}
                 />
             </form>
