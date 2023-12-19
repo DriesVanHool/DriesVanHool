@@ -25,7 +25,7 @@ const CustomerCarousel: FunctionComponent<CustomerCarouselProps> = ({customers})
             <div style={mask}>
                 <Ticker duration={60} direction={1}>
                     {customers.map((customer, index) => (
-                        <div key={index} className="px-10 object-cover"><Image src={customer.logo as string} alt={`Image ${index + 1}`} width={200} height={150}/></div>
+                        <div key={index} className="object-cover px-20"><Image src={customer.logo as string} alt={`Image ${index + 1}`} width={150} height={150}/></div>
                     ))}
                 </Ticker>
             </div>
