@@ -18,4 +18,5 @@ export interface IProjectCreate {
     customer_id?: number | null;
     customer?: ICustomer | null;
     tags?: ITag[];
+    featured?: boolean | false;
 }

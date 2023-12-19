@@ -7,7 +7,7 @@ interface LoaderProps {
 
 const Loader: FunctionComponent<LoaderProps> = () => {
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 justify-center">
             <CircularProgress size="lg" color="default" aria-label="Loading..."/>
         </div>
     )
