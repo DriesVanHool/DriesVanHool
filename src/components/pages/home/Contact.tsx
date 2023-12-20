@@ -1,5 +1,6 @@
 import {FunctionComponent} from 'react'
 import {Input, Textarea} from '@nextui-org/react'
+import SecondayTitle from '../../elements/SecondayTitle.tsx'
 
 interface ContactProps {
 
@@ -8,9 +9,9 @@ interface ContactProps {
 const Contact: FunctionComponent<ContactProps> = () => {
     return (
 <div id="contact">
-        <h3 className="text-3xl font-bold tracking-tight text-white sm:text-3xl text-center pb-10">Contact</h3>
         <div className="relative isolate overflow-hidden flex justify-center" >
             <form className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
+                <SecondayTitle title={"Contact"} styling={"text-left pb-5"}/>
                 <Input
                     isClearable
                     type="email"

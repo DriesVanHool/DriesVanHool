@@ -3,6 +3,7 @@ import Ticker from 'framer-motion-ticker'
 import {Image} from '@nextui-org/react'
 import {CSSProperties} from 'styled-components'
 import {ICustomer} from '../../../models/ICustomer.ts'
+import SecondayTitle from '../../elements/SecondayTitle.tsx'
 
 interface CustomerCarouselProps {
     customers: ICustomer[]
@@ -20,7 +21,7 @@ const CustomerCarousel: FunctionComponent<CustomerCarouselProps> = ({customers})
 
     return (
         <>
-            <h3 className="text-3xl font-bold tracking-tight text-white sm:text-3xl text-center pb-10">Trusted by</h3>
+            <SecondayTitle title={"Trusted by"} styling={"text-center pb-10"}/>
             <div id="customers" className="relative">
             <div style={mask}>
                 <Ticker duration={60} direction={1}>

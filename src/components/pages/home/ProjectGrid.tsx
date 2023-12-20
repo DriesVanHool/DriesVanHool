@@ -1,9 +1,9 @@
 import {FunctionComponent} from 'react'
 import {IProject} from '../../../models/IProject.ts'
 import {Card, Image} from '@nextui-org/react'
-import Loader from '../../utils/Loader.tsx'
 import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
+import SecondayTitle from '../../elements/SecondayTitle.tsx'
 
 interface ProjectGridProps {
     projects: IProject[]
@@ -57,29 +57,21 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     }
 
     return (
-        featuredProjects.length>=4?(
-            <>
-                <h2 className="text-5xl font-bold tracking-tight text-white sm:text-5xl text-center pb-10">Projects</h2>
-                <div  id="projects" className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
-                    {
-                        ImageCard(featuredProjects[0], "sm:col-span-4")
-                    }
-                    {
-                        ImageCard(featuredProjects[1], "sm:col-span-4")
-                    }
-                    {
-                        ImageCard(featuredProjects[2], "sm:col-span-4")
-                    }
-                    {
-                        ImageCard(featuredProjects[3], "sm:col-span-7")
-                    }
-                    <div className="col-span-12 sm:col-span-5 text-center text-5xl  align-middle">
-                        More ...
-                    </div>
+        <>
+            <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
+            <div  id="projects" className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
+                {
+                    featuredProjects.map(project => (
+                        featuredProjects.indexOf(project)<=4? (
+                            ImageCard(project, featuredProjects.indexOf(project)===0?"sm:col-span-7":"sm:col-span-5")
+                        ):null
+                    ))
+                }
+                <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
+                        ...
                 </div>
-            </>
-        ):<Loader/>
-
+            </div>
+        </>
     )
 }
 
