@@ -40,7 +40,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
 
     const ImageCard = (project: IProject, style: string) => {
         return (
-            <Card className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
+            <Card key={project.id} className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
                 <ImageContainer onClick={()=>navigate(`/projects/${project.slug}`)}>
                     <Image
                         isZoomed
@@ -57,9 +57,9 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     }
 
     return (
-        <>
+        <div id="projects" >
             <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
-            <div  id="projects" className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
+            <div className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
                 {
                     featuredProjects.map(project => (
                         featuredProjects.indexOf(project)<=4? (
@@ -71,7 +71,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                         ...
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

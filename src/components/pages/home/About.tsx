@@ -37,13 +37,11 @@ const About: FunctionComponent<AboutProps> = () => {
                         </div>
                     </div>
                 </div>
-            <img         src="dries.png"
-                         alt=""
-                         style={mask}
-                        className="hidden sm:block"
-                        />
-
-
+            <img src="dries.png"
+                 alt=""
+                 style={mask}
+                 className="hidden sm:block"
+            />
         </div>
     )
 }

@@ -25,13 +25,13 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
     const menuItems: IMenuItem[] = [
         {
             title: "About",
-            ref: "#about",
+            ref: "/#about",
             isActive: false,
             icon: null
         },
         {
             title: "Projects",
-            ref: "#projects",
+            ref: "/#projects",
             isActive: false,
             icon: null
         },

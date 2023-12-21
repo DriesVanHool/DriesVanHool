@@ -12,7 +12,7 @@ const Banner: FunctionComponent<BannerProps> = () => {
                 <div className="mx-auto max-w-2xl lg:mx-0">
                     <h1 className="text-6xl font-bold tracking-tight text-foreground sm:text-6xl text-center">Full-stack development and digital creations</h1>
                     <div className="flex justify-center pt-16">
-                        <Button color="primary" size={"lg"} variant="bordered">See what I do</Button>
+                        <Button color="primary" size={"lg"} variant="bordered" href="#projects">See what I do</Button>
                     </div>
                 </div>
             </div>
