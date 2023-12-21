@@ -1,95 +1,100 @@
-import {ChangeEvent, FormEvent, FunctionComponent, useRef, useState} from 'react'
-import {Input, Link, Textarea} from '@nextui-org/react'
+import {FunctionComponent, useRef, useState} from 'react'
+import {Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from '@nextui-org/react'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import emailjs from '@emailjs/browser'
 import {IContactForm} from '../../../models/IContactForm.ts'
-
-interface ContactProps {
-
-}
+import z, {ZodType} from 'zod'
+import {useForm} from 'react-hook-form'
+import {zodResolver} from '@hookform/resolvers/zod'
+import ConfettiExplosion from 'react-confetti-explosion'
 
 const emailServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID
 const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
 const emailPublicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY
 
-const Contact: FunctionComponent<ContactProps> = () => {
-    const form = useRef<HTMLFormElement>(null);
-    const defaultFormValues : IContactForm= {
-        name:'',
-        email:'',
-        message:''
-    }
-    const [contactForm, setContactForm] = useState<IContactForm>(defaultFormValues)
+const Contact: FunctionComponent = () => {
+    const formRef = useRef<HTMLFormElement>(null);
+    const [messageSend, setMessageSend] = useState(false)
+    //Zod schema for contact form
+    const formSchema: ZodType<IContactForm> = z.object({
+        name:z.string().min(1),
+        email:z.string().email(),
+        message:z.string().min(1),
+    })
 
-    const onChange = (e: ChangeEvent<HTMLInputElement>)=>{
-        setContactForm({
-            ...contactForm,
-            [e.target.name]:e.target.value
-        })
-    }
-    const sendEmail = (e:FormEvent) => {
-        e.preventDefault();
-        emailjs.sendForm(emailServiceId, emailTemplateId, form.current??"", emailPublicKey)
+    //Zodresolver for connection between zod and react hook form
+    const {register, handleSubmit, formState: {errors}, reset} = useForm<IContactForm>({resolver:zodResolver(formSchema)})
+
+    const sendEmail = () => {
+        //Email expects a HTMLFormElement
+        //Real mailing commented for testing purposes
+/*        emailjs.sendForm(emailServiceId, emailTemplateId, formRef.current??'', emailPublicKey)
             .then(() => {
-                setContactForm(defaultFormValues)
-                console.log("Message send successfully");
+                reset()
+                setMessageSend(true)
             }, (error) => {
                 console.log(error);
-            });
+            });*/
+        setMessageSend(true)
+        reset()
     };
 
     return (
         <div id="contact">
-                <div className="relative isolate overflow-hidden flex justify-center" >
-                    <form ref={form} onSubmit={sendEmail} className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
-                        <SecondayTitle title={"Contact"} styling={"text-left pb-5"}/>
-                        <Input
-                            isClearable
-                            type="text"
-                            label="Name"
-                            name="name"
-                            variant="bordered"
-                            placeholder="Name"
-                            required
-                            value={contactForm.name}
-                            onChange={onChange}
-                            onClear={() => contactForm.name = ''}
-                            className="col-span-2"
-                        />
-                        <Input
-                            isClearable
-                            type="email"
-                            label="Email"
-                            name="email"
-                            variant="bordered"
-                            placeholder="Enter your email"
-                            required
-                            value={contactForm.email}
-                            onChange={onChange}
-                            onClear={() => contactForm.email = ''}
-                            className="col-span-2"
-                        />
-                        <Textarea
-                            label="Message"
-                            name="message"
-                            variant="bordered"
-                            placeholder="Ask me anything"
-                            required
-                            disableAnimation
-                            disableAutosize
-                            value={contactForm.message}
-                            onChange={onChange}
-                            classNames={{
-                                base: "col-span-2",
-                                input: "resize-y min-h-[200px]",
-                            }}
-                        />
-                        <div className="flex flex-row justify-end col-span-2">
-                            <Input type="submit" className="text-xl" as={Link} color="primary" variant="flat" value="Confirm">Confirm</Input>
-                        </div>
-                    </form>
-                </div>
+            <div className="relative isolate overflow-hidden flex justify-center" >
+                <form ref={formRef} onSubmit={handleSubmit(sendEmail)} className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
+                    <SecondayTitle title={"Contact"} styling={"text-left pb-5"}/>
+                    <Input {...register("name")}
+                        isClearable onClear={()=>reset({ name: '' })}
+                        type="text"
+                        label="Name"
+                        name="name"
+                        variant="bordered"
+                        placeholder="Name"
+                        className="col-span-2"
+                       isInvalid={errors.name===null}
+                       color={errors.name ? "danger" : "primary"}
+                       errorMessage={errors.name && "Please enter your name"}
+                    />
+                    <Input {...register("email")}
+                        isClearable
+                        onClear={()=>reset({ email: '' })}
+                        type="email"
+                        label="Email"
+                        name="email"
+                        variant="bordered"
+                        placeholder="Enter your email"
+                        className="col-span-2"
+                       isInvalid={errors.email===null}
+                       color={errors.email ? "danger" : "primary"}
+                       errorMessage={errors.email && "Please enter a valid email"}
+                    />
+                    <Textarea {...register("message")}
+                        label="Message"
+                        type="text"
+                        name="message"
+                        variant="bordered"
+                        placeholder="Ask me anything"
+                        disableAnimation
+                        disableAutosize
+                          isInvalid={errors.message===null}
+                          color={errors.message ? "danger" : "primary"}
+                          errorMessage={errors.message && "Please fill a message"}
+                        classNames={{
+                            base: "col-span-2",
+                            input: "resize-y min-h-[200px]",
+                        }}
+                    />
+                    <Input type="submit" className="col-span-2 sm:col-start-2 sm:col-span-1" color="primary"
+                           variant="bordered" value="Confirm"/>
+                </form>
+                {
+                    messageSend && (
+                        <ConfettiExplosion className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+                    )
+                }
             </div>
+        </div>
     )
 }
 

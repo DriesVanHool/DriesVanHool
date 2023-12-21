@@ -9,11 +9,7 @@ interface ProjectGridProps {
     projects: IProject[]
 }
 
-const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
-    const navigate = useNavigate()
-    const featuredProjects:IProject[] = projects.filter(p=>p.featured)
-
-    const ProjectTitle = styled.div`
+const ProjectTitle = styled.div`
       position: absolute;
       top: 50%;
       left: 50%;
@@ -22,7 +18,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
       transition: opacity 0.4s ease;
     `;
 
-    const ImageContainer = styled.div`
+const ImageContainer = styled.div`
       height: 100%;
       img {
         transition: 0.5s ease;
@@ -37,6 +33,9 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
       }
     `;
 
+const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
+    const navigate = useNavigate()
+    const featuredProjects:IProject[] = projects.filter(p=>p.featured)
 
     const ImageCard = (project: IProject, style: string) => {
         return (
