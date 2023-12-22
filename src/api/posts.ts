@@ -30,7 +30,8 @@ const getPosts = async (): Promise<IPost[]> => {
             tags: posts_tags(
               tag: tag_id(
                 id,
-                name
+                name,
+                color
               )
             )
         `)
@@ -60,7 +61,8 @@ const getPostBySlug = async ({slug}: GetPostBySlugParams): Promise<IPost> => {
             tags: posts_tags(
               tag: tag_id(
                 id,
-                name
+                name,
+                color
               )
             )
         `)

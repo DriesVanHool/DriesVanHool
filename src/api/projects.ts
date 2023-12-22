@@ -36,7 +36,8 @@ const getProjects = async (): Promise<IProject[]> => {
             tags: projects_tags(
               tag: tag_id(
                 id,
-                name
+                name,
+                color
               )
             )
         `)
@@ -72,7 +73,8 @@ const getPostBySlug= async ({slug}: GetProjectByTitleParams): Promise<IProject> 
             tags: projects_tags(
               tag: tag_id(
                 id,
-                name
+                name,
+                color
               )
             )
         `)
