@@ -7,7 +7,7 @@ interface BannerProps {
 
 const Banner: FunctionComponent<BannerProps> = () => {
     return (
-        <div id="banner" className="relative isolate  flex justify-center h-screen -mb-96" >
+        <div id="banner" className="relative isolate flex justify-center h-screen -mb-96" >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
                     <h1 className="text-6xl font-bold tracking-tight text-foreground sm:text-6xl text-center">Full-stack development and digital creations</h1>

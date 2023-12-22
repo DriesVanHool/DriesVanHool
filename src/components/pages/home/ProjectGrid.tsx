@@ -4,6 +4,7 @@ import {Card, Image} from '@nextui-org/react'
 import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
+import { motion } from 'framer-motion'
 
 interface ProjectGridProps {
     projects: IProject[]
@@ -57,7 +58,12 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
 
     return (
         <div id="projects" >
-            <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
+            <motion.div
+                initial={{ translateX: 150 }}
+                whileInView={{ translateX: 0 }}
+            >
+                <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
+            </motion.div>
             <div className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
                 {
                     featuredProjects.map(project => (
@@ -66,7 +72,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                         ):null
                     ))
                 }
-                <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
+                <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center cursor-pointer" onClick={()=>navigate('/projects')}>
                         ...
                 </div>
             </div>

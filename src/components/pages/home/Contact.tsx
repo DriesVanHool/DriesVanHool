@@ -7,6 +7,7 @@ import z, {ZodType} from 'zod'
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import ConfettiExplosion from 'react-confetti-explosion'
+import { motion } from 'framer-motion'
 
 const emailServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID
 const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
@@ -43,7 +44,12 @@ const Contact: FunctionComponent = () => {
         <div id="contact">
             <div className="relative isolate overflow-hidden flex justify-center" >
                 <form ref={formRef} onSubmit={handleSubmit(sendEmail)} className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
+                    <motion.div
+                        initial={{ translateX: -150 }}
+                        whileInView={{ translateX: 0 }}
+                    >
                     <SecondayTitle title={"Contact"} styling={"text-left pb-5"}/>
+                    </motion.div>
                     <Input {...register("name")}
                         isClearable onClear={()=>reset({ name: '' })}
                         type="text"
