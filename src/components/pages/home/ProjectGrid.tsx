@@ -4,7 +4,7 @@ import {Card, Image} from '@nextui-org/react'
 import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
 interface ProjectGridProps {
     projects: IProject[]
@@ -37,7 +37,21 @@ const ImageContainer = styled.div`
 const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     const navigate = useNavigate()
     const featuredProjects:IProject[] = projects.filter(p=>p.featured)
+    const dotClasses = "bg-primary w-8 h-8 rounded-full block"
+    const dotVariant = {
+        initial: {
+            scale: 1
+        },
+        animate: {
+            scale: [1,1.5,1]
+        }}
 
+    const dotTransition = {
+        duration:.3,
+        ease: "easeInOut"
+    }
+
+    //Project images with link to detailpage. Style mainly used for different colspans
     const ImageCard = (project: IProject, style: string) => {
         return (
             <Card key={project.id} className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
@@ -53,6 +67,47 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                     <ProjectTitle className="text-2xl text-center text-foreground">{project.name}</ProjectTitle>
                 </ImageContainer>
             </Card>
+        )
+    }
+
+    //Project overview page navigation with animated staggered dots.
+    const MoreProjects = () =>{
+        return (
+            <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
+                <motion.div
+                    className="flex  space-x-3 cursor-pointer"
+                    onClick={()=>navigate('/projects')}
+                    variants={{
+                        initial: {
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        },
+                        animate: {
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        }}}
+                    initial="initial"
+                    whileHover="animate"
+                >
+                    <motion.span
+                        variants={dotVariant}
+                        transition={dotTransition}
+                        className={dotClasses}
+                    />
+                    <motion.span
+                        variants={dotVariant}
+                        transition={dotTransition}
+                        className={dotClasses}
+                    />
+                    <motion.span
+                    variants={dotVariant}
+                    transition={dotTransition}
+                    className={dotClasses}
+                />
+                </motion.div>
+            </div>
         )
     }
 
@@ -72,9 +127,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                         ):null
                     ))
                 }
-                <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center cursor-pointer" onClick={()=>navigate('/projects')}>
-                        ...
-                </div>
+                <MoreProjects/>
             </div>
         </div>
     )

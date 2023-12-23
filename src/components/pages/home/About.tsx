@@ -2,6 +2,7 @@ import {FunctionComponent} from 'react'
 import {CSSProperties} from 'styled-components'
 import {FaGithub, FaLinkedin} from 'react-icons/fa'
 import {motion} from 'framer-motion'
+import dries from '../../../assets/dries.png'
 
 interface AboutProps {
 
@@ -28,21 +29,20 @@ const About: FunctionComponent<AboutProps> = () => {
                         <div className="grid grid-cols-4 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white md:flex lg:gap-x-10">
                             <motion.a
                                 whileHover={{ scale: 1.2 }}
-                                href="#"
+                                href="https://github.com/DriesVanHool"
                             >
                                 <FaGithub />
                             </motion.a>
-
                             <motion.a
                                 whileHover={{ scale: 1.2 }}
-                                href="#"
+                                href="https://www.linkedin.com/in/dries-van-hool-371202195/"
                             >
                                 <FaLinkedin />
                             </motion.a>
                         </div>
                     </div>
                 </div>
-            <img src="dries.png"
+            <img src={dries}
                  alt=""
                  style={mask}
                  className="hidden sm:block"

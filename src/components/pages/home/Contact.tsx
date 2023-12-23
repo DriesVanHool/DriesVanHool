@@ -1,5 +1,5 @@
 import {FunctionComponent, useRef, useState} from 'react'
-import {Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from '@nextui-org/react'
+import {Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from '@nextui-org/react'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import emailjs from '@emailjs/browser'
 import {IContactForm} from '../../../models/IContactForm.ts'
@@ -91,8 +91,8 @@ const Contact: FunctionComponent = () => {
                             input: "resize-y min-h-[200px]",
                         }}
                     />
-                    <Input type="submit" className="col-span-2 sm:col-start-2 sm:col-span-1" color="primary"
-                           variant="bordered" value="Confirm"/>
+                    <Button type="submit" className="col-span-2 sm:col-start-2 sm:col-span-1" color="primary"
+                            variant="bordered">Confirm</Button>
                 </form>
                 {
                     messageSend && (
