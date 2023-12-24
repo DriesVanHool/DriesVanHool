@@ -22,7 +22,7 @@ const Home: FunctionComponent<HomeProps> = () => {
     if (projectError || customerError) {
         return (
             <ErrorMessage>
-                <p>Oei</p>
+                <p>Couldn't load data</p>
             </ErrorMessage>
         )
     }

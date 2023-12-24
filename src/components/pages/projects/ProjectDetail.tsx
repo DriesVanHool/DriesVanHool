@@ -15,7 +15,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = () => {
     if (projectError) {
         return (
             <ErrorMessage>
-                <p>Oei</p>
+                <p>Couldn't load data</p>
             </ErrorMessage>
         )
     }

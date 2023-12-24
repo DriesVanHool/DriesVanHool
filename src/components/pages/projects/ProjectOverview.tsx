@@ -21,11 +21,12 @@ const ProjectOverview: FunctionComponent = () => {
     if (projectError || categoryError || tagError) {
         return (
             <ErrorMessage>
-                <p>Oei</p>
+                <p>Couldn't load data</p>
             </ErrorMessage>
         )
     }
 
+    //Change selected category dd
     const handleChangeCategory = (e:ChangeEvent<HTMLSelectElement>) => {
         let selectedId: number | null
         try {
@@ -36,6 +37,7 @@ const ProjectOverview: FunctionComponent = () => {
         setSelectedCategoryId(selectedId)
     };
 
+    //Change selected tag Id. Add to array
     const handleChangeTags = (e:ChangeEvent<HTMLSelectElement>) => {
         let selectedIds: number[]
         try {
@@ -47,6 +49,7 @@ const ProjectOverview: FunctionComponent = () => {
         setSelectedTagIds(selectedIds)
     };
 
+    //Depending on selected catagory and tags, filter projects
     const filterProjects = (): IProject[] => {
         let filteredProjects = projects || [];
         if (selectedCategoryId){
@@ -66,7 +69,7 @@ const ProjectOverview: FunctionComponent = () => {
         <>
             <h1 className="text-6xl font-bold tracking-tight text-foreground sm:text-6xl mb-10">Projects</h1>
             <div className="w-full gap-10 grid grid-cols-2">
-                {/*Filter overview*/}
+                {/*Filters*/}
                 <div className="col-span-2 sm:space-x-6 space-y-6">
                     <Select
                         items={categories}
@@ -96,7 +99,7 @@ const ProjectOverview: FunctionComponent = () => {
                 <ListboxWrapper styling={'col-span-2 sm:col-span-1'}>
                     {/*NextUI mapping handeled with listbox items*/}
                     <Listbox variant="faded"
-                             items={filterProjects().map((project: IProject) => project)}
+                             items={filterProjects()}
                              classNames={{
                                  base: "h-[500px]",
                                  list: "max-h-[500px] overflow-y-scroll",

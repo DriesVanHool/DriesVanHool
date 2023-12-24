@@ -13,7 +13,7 @@ const Blog: FunctionComponent<BlogProps> = () => {
     if (postError) {
         return (
             <ErrorMessage>
-                <p>Oei</p>
+                <p>Couldn't load data</p>
             </ErrorMessage>
         )
     }
