@@ -12,7 +12,7 @@ interface ThemeContextProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-    theme: 'green-dark',
+    theme: 'blue-dark',
     setTheme: () => {
         console.warn('No implementation had been provided for ThemeContext.setTheme()')
     }

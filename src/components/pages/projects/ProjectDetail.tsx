@@ -1,7 +1,6 @@
-import {FunctionComponent, Suspense} from 'react'
+import {FunctionComponent} from 'react'
 import {useParams} from 'react-router-dom'
 import ErrorMessage from '../../utils/ErrorMessage.tsx'
-import LoadingPage from '../../utils/LoadingPage.tsx'
 import {useGetProjectBySlug} from '../../../api/projects.ts'
 
 interface ProjectDetailProps {
@@ -20,11 +19,9 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = () => {
         )
     }
     return (
-        <Suspense fallback={<LoadingPage/>}>
-            <div>
-                {project?.name}
-            </div>
-        </Suspense>
+        <div>
+            {project?.name}
+        </div>
     )
 }
 

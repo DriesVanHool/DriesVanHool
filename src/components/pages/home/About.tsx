@@ -1,8 +1,8 @@
 import {FunctionComponent} from 'react'
 import {CSSProperties} from 'styled-components'
-import {FaGithub, FaLinkedin} from 'react-icons/fa'
 import {motion} from 'framer-motion'
 import dries from '../../../assets/dries.png'
+import Socials from '../../navigation/Socials.tsx'
 
 interface AboutProps {
 
@@ -27,18 +27,7 @@ const About: FunctionComponent<AboutProps> = () => {
                     </div>
                     <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                         <div className="grid grid-cols-4 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white md:flex lg:gap-x-10">
-                            <motion.a
-                                whileHover={{ scale: 1.2 }}
-                                href="https://github.com/DriesVanHool"
-                            >
-                                <FaGithub />
-                            </motion.a>
-                            <motion.a
-                                whileHover={{ scale: 1.2 }}
-                                href="https://www.linkedin.com/in/dries-van-hool-371202195/"
-                            >
-                                <FaLinkedin />
-                            </motion.a>
+                            <Socials/>
                         </div>
                     </div>
                 </div>
