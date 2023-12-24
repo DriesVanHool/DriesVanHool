@@ -1,13 +1,14 @@
 import {ChangeEvent, FunctionComponent, useState} from 'react'
 import {useGetProjects} from '../../../api/projects.ts'
 import ErrorMessage from '../../utils/ErrorMessage.tsx'
-import {Chip, Listbox, ListboxItem, Select, SelectItem} from '@nextui-org/react'
+import {Listbox, ListboxItem, Select, SelectItem} from '@nextui-org/react'
 import ListboxWrapper from '../../elements/ListboxWrapper.tsx'
 import {IProject} from '../../../models/IProject.ts'
 import {motion} from 'framer-motion'
 import {useNavigate} from 'react-router-dom'
 import {useGetCategories, useGetTags} from '../../../api/general.ts'
 import {IProjectTag} from '../../../models/IProjectTag.ts'
+import TagChip from '../../elements/TagChip.tsx'
 
 const ProjectOverview: FunctionComponent = () => {
     const navigate = useNavigate()
@@ -112,7 +113,7 @@ const ProjectOverview: FunctionComponent = () => {
                                 <div className="flex flex-wrap gap-4 py-3 justify-end">
                                     {
                                         project.tags?.map(projectTag=>(
-                                                <Chip key={`tag${projectTag.tag?.id}`} size="sm" color={projectTag.tag?.color}>{projectTag.tag?.name}</Chip>
+                                                <TagChip key={`tag${projectTag.tag?.id}`} tag={projectTag.tag}/>
                                             )
                                         )
                                     }
