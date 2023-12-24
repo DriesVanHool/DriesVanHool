@@ -78,7 +78,7 @@ const getPostBySlug= async ({slug}: GetProjectByTitleParams): Promise<IProject> 
               )
             )
         `)
-        .eq('slug', slug)
+        .ilike('slug', `%${slug}%`)
         .single()
 
     if (error) {
