@@ -11,7 +11,6 @@ import {
     NavbarMenuToggle
 } from '@nextui-org/react'
 import Logo from '../icons/Logo.tsx'
-import ServiceDropdown from './ServiceDropdown.tsx'
 import ThemeSwitcher from '../utils/ThemeSwitcher.tsx'
 import {IMenuItem} from '../../models/IMenuItem.ts'
 
@@ -36,10 +35,16 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
             icon: null
         },
         {
-            title: "Blog",
-            ref: "/blog",
+            title: "Services",
+            ref: "/#services",
             isActive: false,
             icon: null
+        },
+        {
+            title: "Coffee corner",
+            ref: "/coffee-corner",
+            isActive: false,
+            icon: <span>&#9749;</span>
         }
     ];
 
@@ -63,10 +68,10 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
                     <NavbarItem key={`${item.title}-${index}`} isActive={item.isActive}>
                         <Link className="text-xl" href={item.ref}>
                             {item.title}
+                            {item.icon}
                         </Link>
                     </NavbarItem>
                 ))}
-                <ServiceDropdown/>
             </NavbarContent>
             {/*Navbar end*/}
             <NavbarContent justify="end">
@@ -89,10 +94,10 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
                             size="lg"
                         >
                             {item.title}
+                            {item.icon}
                         </Link>
                     </NavbarMenuItem>
                 ))}
-                <ServiceDropdown/>
             </NavbarMenu>
         </Navbar>
     );

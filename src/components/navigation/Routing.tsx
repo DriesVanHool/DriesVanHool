@@ -14,7 +14,7 @@ const Routing: FunctionComponent = () => {
                 <Route index element={<ProjectOverview/>}/>
                 <Route path=":slug" element={<ProjectDetail/>}/>
             </Route>
-            <Route path="/blog" element={<Outlet/>}>
+            <Route path="/coffee-corner" element={<Outlet/>}>
                 <Route index element={<Blog/>}/>
                 <Route path=":slug" element={<PostDetail/>}/>
             </Route>
