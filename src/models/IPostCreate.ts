@@ -14,4 +14,5 @@ export interface IPostCreate {
     linkedin: string | null
     youtube: string | null
     tags?: IProjectTag[]
+    image?: string | null
 }

@@ -9,10 +9,11 @@ export interface IPost {
     slug: string
     category_id: number | null
     category?: ICategory | null
-    createdAt: string | null
+    created_at: string | null
     updated_at: string | null
     medium: string | null
     linkedin: string | null
     youtube: string | null
     tags?: IProjectTag[]
+    image?: string | null
 }

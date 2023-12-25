@@ -8,7 +8,7 @@ interface TagChipsProps {
 
 const TagChip: FunctionComponent<TagChipsProps> = ({tag}) => {
     return (
-        <Chip size="sm" color={tag?.color}>{tag?.name}</Chip>
+        <Chip size="sm">{tag?.name}</Chip>
     )
 }
 

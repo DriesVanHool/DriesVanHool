@@ -68,7 +68,7 @@ const ProjectOverview: FunctionComponent = () => {
 
     return (
         <>
-            <h1 className="text-6xl font-bold tracking-tight text-foreground sm:text-6xl mb-10">Projects</h1>
+            <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-10">Projects</h1>
             <div className="w-full gap-10 grid grid-cols-2">
                 {/*Filters*/}
                 <div className="col-span-2 sm:space-x-6 space-y-6">

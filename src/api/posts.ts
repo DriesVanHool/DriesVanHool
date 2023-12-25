@@ -9,13 +9,6 @@ export const useGetPosts = (): UseQueryResult<IPost[], Error> => {
     })
 }
 
-export const useGetPostsBySlug = (slug: string | null): UseQueryResult<IPost, Error> => {
-    return useQuery({
-        queryKey: ['posts', slug],
-        queryFn: () => getPostBySlug({slug}),
-    })
-}
-
 //QUERIES
 
 const getPosts = async (): Promise<IPost[]> => {
@@ -34,40 +27,9 @@ const getPosts = async (): Promise<IPost[]> => {
                 color
               )
             )
-        `)
+        `).order('created_at')
 
     const {data, error} = await query
-
-    if (error) {
-        throw error
-    }
-
-    return data
-}
-
-interface GetPostBySlugParams {
-    slug: string | null
-}
-
-const getPostBySlug = async ({slug}: GetPostBySlugParams): Promise<IPost> => {
-    const {error, data}  = await supabaseClient
-        .from('posts')
-        .select(`
-            *,
-            category: category_id(
-                id,
-                name
-            ),
-            tags: posts_tags(
-              tag: tag_id(
-                id,
-                name,
-                color
-              )
-            )
-        `)
-        .ilike('slug', `%${slug}%`)
-        .single()
 
     if (error) {
         throw error
