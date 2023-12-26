@@ -4,6 +4,7 @@ import {Card, Image, Link} from '@nextui-org/react'
 import styled from 'styled-components'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import {motion} from 'framer-motion'
+import {CgMoreO} from 'react-icons/cg'
 
 interface ProjectGridProps {
     projects: IProject[]
@@ -35,19 +36,6 @@ const ImageContainer = styled.div`
 
 const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     const featuredProjects:IProject[] = projects.filter(p=>p.featured)
-    const dotClasses = "bg-primary w-3 h-3 mx-1 rounded-full block"
-    const dotVariant = {
-        initial: {
-            scale: 1
-        },
-        animate: {
-            scale: [1,1.5,1]
-        }}
-
-    const dotTransition = {
-        duration:.3,
-        ease: "easeInOut"
-    }
 
     //Project images with link to detailpage. Style mainly used for different colspans
     const ImageCard = (project: IProject, style: string) => {
@@ -68,49 +56,6 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
         )
     }
 
-    //Project overview page navigation with animated staggered dots.
-    const MoreProjects = () =>{
-        return (
-            <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
-                <motion.div
-                    className="flex space-x-3 cursor-pointer"
-                    variants={{
-                        initial: {
-                            transition: {
-                                staggerChildren: 0.2
-                            }
-                        },
-                        animate: {
-                            transition: {
-                                staggerChildren: 0.2
-                            }
-                        }}}
-                    initial="initial"
-                    whileHover="animate"
-                >
-                    <Link href={"/projects"} className="align-bottom">
-                        <span className="text-4xl mr-1">More</span>
-                        <motion.span
-                            variants={dotVariant}
-                            transition={dotTransition}
-                            className={dotClasses}
-                        />
-                        <motion.span
-                            variants={dotVariant}
-                            transition={dotTransition}
-                            className={dotClasses}
-                        />
-                        <motion.span
-                            variants={dotVariant}
-                            transition={dotTransition}
-                            className={dotClasses}
-                        />
-                    </Link>
-                </motion.div>
-            </div>
-        )
-    }
-
     return (
         <div id="projects" >
             <motion.div
@@ -119,7 +64,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
             >
                 <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
             </motion.div>
-            <div className="w-full gap-6 grid grid-cols-12 grid-rows-2 px-8">
+            <div className="w-full gap-10 grid grid-cols-12 grid-rows-2 px-8">
                 {
                     featuredProjects.map(project => (
                         featuredProjects.indexOf(project)<=4? (
@@ -127,7 +72,14 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                         ):null
                     ))
                 }
-                <MoreProjects/>
+
+                <motion.a
+                    whileHover={{ scale: 1.2 }}
+                    href={"/projects"}
+                    className="h-[300px] col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center text-primary"
+                >
+                    <CgMoreO />
+                </motion.a>
             </div>
         </div>
     )
