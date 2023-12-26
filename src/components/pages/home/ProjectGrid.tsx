@@ -35,7 +35,7 @@ const ImageContainer = styled.div`
 
 const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     const featuredProjects:IProject[] = projects.filter(p=>p.featured)
-    const dotClasses = "bg-primary w-8 h-8 rounded-full block"
+    const dotClasses = "bg-primary w-3 h-3 mx-1 rounded-full block"
     const dotVariant = {
         initial: {
             scale: 1
@@ -73,7 +73,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
         return (
             <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
                 <motion.div
-                    className="flex  space-x-3 cursor-pointer"
+                    className="flex space-x-3 cursor-pointer"
                     variants={{
                         initial: {
                             transition: {
@@ -88,7 +88,8 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                     initial="initial"
                     whileHover="animate"
                 >
-                    <Link href={"/projects"}>
+                    <Link href={"/projects"} className="align-bottom">
+                        <span className="text-4xl mr-1">More</span>
                         <motion.span
                             variants={dotVariant}
                             transition={dotTransition}
@@ -118,7 +119,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
             >
                 <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
             </motion.div>
-            <div className="w-full gap-2 grid grid-cols-12 grid-rows-2 px-8">
+            <div className="w-full gap-6 grid grid-cols-12 grid-rows-2 px-8">
                 {
                     featuredProjects.map(project => (
                         featuredProjects.indexOf(project)<=4? (

@@ -9,6 +9,7 @@ import CustomerCarousel from './CustomerCarousel.tsx'
 import Contact from './Contact.tsx'
 import ScrollToAnchor from '../../navigation/ScrollToAnchor.tsx'
 import {useGetCustomers} from '../../../api/customers.ts'
+import Services from './Services.tsx'
 
 interface HomeProps {
 
@@ -34,6 +35,8 @@ const Home: FunctionComponent<HomeProps> = () => {
             <Spacer y={space} />
             <About/>
             <Spacer y={space} />
+            <Services/>
+            <Spacer y={space}/>
             <ProjectGrid projects={projects??[]}/>
             <Spacer y={space} />
             <Contact/>
