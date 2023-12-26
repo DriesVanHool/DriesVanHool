@@ -5,13 +5,11 @@ import {Listbox, ListboxItem, Select, SelectItem} from '@nextui-org/react'
 import ListboxWrapper from '../../elements/ListboxWrapper.tsx'
 import {IProject} from '../../../models/IProject.ts'
 import {motion} from 'framer-motion'
-import {useNavigate} from 'react-router-dom'
 import {useGetCategories, useGetTags} from '../../../api/general.ts'
 import {IProjectTag} from '../../../models/IProjectTag.ts'
 import TagChip from '../../elements/TagChip.tsx'
 
 const ProjectOverview: FunctionComponent = () => {
-    const navigate = useNavigate()
     const {data: projects, isError: projectError} = useGetProjects()
     const {data: categories, isError: categoryError} = useGetCategories()
     const {data: tags, isError: tagError} = useGetTags()
@@ -105,10 +103,9 @@ const ProjectOverview: FunctionComponent = () => {
                                  base: "h-[500px]",
                                  list: "max-h-[500px] overflow-y-scroll",
                              }}
-                             onAction={(key) => navigate('/projects/'+key)}
                              aria-label="Project list">
                         {(project) => (
-                            <ListboxItem key={project.slug} textValue={project.name} onMouseOver={()=>setHoverProject(project)} onMouseOut={()=>setHoverProject(null)}>
+                            <ListboxItem href={`/projects/${project.slug}`} key={project.slug} textValue={project.name} onMouseOver={()=>setHoverProject(project)} onMouseOut={()=>setHoverProject(null)}>
                                 <p className="text-xl">{project.name}</p>
                                 <div className="flex flex-wrap gap-4 py-3 justify-end">
                                     {

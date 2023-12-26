@@ -11,14 +11,14 @@ const Socials: FunctionComponent<SocialsProps> = ({styling}) => {
         <>
             <motion.a
                 whileHover={{ scale: 1.2 }}
-                href="https://github.com/DriesVanHool"
+                href={import.meta.env.VITE_URL_GITHUB}
                 className={styling??''}
             >
                 <FaGithub />
             </motion.a>
             <motion.a
                 whileHover={{ scale: 1.2 }}
-                href="https://www.linkedin.com/in/dries-van-hool-371202195/"
+                href={import.meta.env.VITE_URL_LINKEDIN}
                 className={styling??''}
             >
                 <FaLinkedin />

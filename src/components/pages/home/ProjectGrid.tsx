@@ -1,8 +1,7 @@
 import {FunctionComponent} from 'react'
 import {IProject} from '../../../models/IProject.ts'
-import {Card, Image} from '@nextui-org/react'
+import {Card, Image, Link} from '@nextui-org/react'
 import styled from 'styled-components'
-import {useNavigate} from 'react-router-dom'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import {motion} from 'framer-motion'
 
@@ -35,7 +34,6 @@ const ImageContainer = styled.div`
     `;
 
 const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
-    const navigate = useNavigate()
     const featuredProjects:IProject[] = projects.filter(p=>p.featured)
     const dotClasses = "bg-primary w-8 h-8 rounded-full block"
     const dotVariant = {
@@ -55,15 +53,15 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     const ImageCard = (project: IProject, style: string) => {
         return (
             <Card key={project.id} className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
-                <ImageContainer onClick={()=>navigate(`/projects/${project.slug}`)}>
-                    <Image
-                        isZoomed
-                        isBlurred
-                        removeWrapper
-                        alt={project.name}
-                        className="z-0 h-full w-full object-cover"
-                        src={project.thumbnail??''}
-                    />
+                <ImageContainer as={Link} href={`/projects/${project.slug}`}>
+                        <Image
+                            isZoomed
+                            isBlurred
+                            removeWrapper
+                            alt={project.name}
+                            className="z-0 h-full w-full object-cover"
+                            src={project.thumbnail??''}
+                        />
                     <ProjectTitle className="text-2xl text-center text-foreground">{project.name}</ProjectTitle>
                 </ImageContainer>
             </Card>
@@ -76,7 +74,6 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
             <div className="col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center">
                 <motion.div
                     className="flex  space-x-3 cursor-pointer"
-                    onClick={()=>navigate('/projects')}
                     variants={{
                         initial: {
                             transition: {
@@ -91,21 +88,23 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                     initial="initial"
                     whileHover="animate"
                 >
-                    <motion.span
-                        variants={dotVariant}
-                        transition={dotTransition}
-                        className={dotClasses}
-                    />
-                    <motion.span
-                        variants={dotVariant}
-                        transition={dotTransition}
-                        className={dotClasses}
-                    />
-                    <motion.span
-                    variants={dotVariant}
-                    transition={dotTransition}
-                    className={dotClasses}
-                />
+                    <Link href={"/projects"}>
+                        <motion.span
+                            variants={dotVariant}
+                            transition={dotTransition}
+                            className={dotClasses}
+                        />
+                        <motion.span
+                            variants={dotVariant}
+                            transition={dotTransition}
+                            className={dotClasses}
+                        />
+                        <motion.span
+                            variants={dotVariant}
+                            transition={dotTransition}
+                            className={dotClasses}
+                        />
+                    </Link>
                 </motion.div>
             </div>
         )

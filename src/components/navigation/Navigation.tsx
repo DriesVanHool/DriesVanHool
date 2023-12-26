@@ -49,7 +49,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
     ];
 
     return (
-        <Navbar maxWidth="xl" shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} className="mt-5">
+        <Navbar aria-label="Navigation" maxWidth="xl" shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} className="mt-5">
             {/*Home/icon & mobile toggle*/}
             <NavbarContent>
                 <NavbarMenuToggle
