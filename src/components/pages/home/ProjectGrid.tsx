@@ -4,7 +4,7 @@ import {Card, Image, Link} from '@nextui-org/react'
 import styled from 'styled-components'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import {motion} from 'framer-motion'
-import {CgMoreO} from 'react-icons/cg'
+import {IoIosMore} from 'react-icons/io'
 
 interface ProjectGridProps {
     projects: IProject[]
@@ -47,7 +47,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                             isBlurred
                             removeWrapper
                             alt={project.name}
-                            className="z-0 h-full w-full object-cover"
+                            className="z-0 w-full h-full object-cover"
                             src={project.thumbnail??''}
                         />
                     <ProjectTitle className="text-2xl text-center text-foreground">{project.name}</ProjectTitle>
@@ -64,7 +64,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
             >
                 <SecondayTitle title={"Projects"} styling={"text-right pb-10 pr-10"}/>
             </motion.div>
-            <div className="w-full gap-10 grid grid-cols-12 grid-rows-2 px-8">
+            <div className="w-full gap-5 grid grid-cols-12 grid-rows-2 mx-0 sm:px-8">
                 {
                     featuredProjects.map(project => (
                         featuredProjects.indexOf(project)<=4? (
@@ -76,9 +76,11 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                 <motion.a
                     whileHover={{ scale: 1.2 }}
                     href={"/projects"}
-                    className="h-[300px] col-span-12 sm:col-span-2 text-center text-7xl flex justify-center items-center text-primary"
+                    className="h-[300px] col-span-12 sm:col-span-2 text-center flex justify-center items-center"
                 >
-                    <CgMoreO />
+                    <div className="rounded-full p-3 bg-secondary bg-opacity-20 text-primary text-5xl">
+                        <IoIosMore />
+                    </div>
                 </motion.a>
             </div>
         </div>

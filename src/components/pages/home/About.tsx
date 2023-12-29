@@ -15,7 +15,7 @@ const About: FunctionComponent<AboutProps> = () => {
         <>
             <div id="about" className="relative isolate overflow-hidden flex py-20" color="background">
                 {/*Add 3D model with loader*/}
-                <div className='w-[450px] h-[450px]'>
+                <div className='w-[450px] h-[450px] hidden sm:block'>
                     <Suspense fallback={<Spinner className='w-full h-full' size="lg" color={'warning'}/>}>
                         <Canvas style={{ width: '100%', height: '100%' }}>
                             <HeadModel/>

@@ -44,7 +44,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
             title: "Coffee corner",
             ref: "/coffee-corner",
             isActive: false,
-            icon: <span>&#9749;</span>
+            icon: <span className="ml-0.5">&#9749;</span>
         }
     ];
 

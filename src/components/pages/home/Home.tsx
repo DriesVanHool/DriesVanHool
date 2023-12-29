@@ -30,7 +30,6 @@ const Home: FunctionComponent<HomeProps> = () => {
 
     return (
         <>
-            <Spacer y={space} />
             <Banner/>
             <Spacer y={space} />
             <About/>
