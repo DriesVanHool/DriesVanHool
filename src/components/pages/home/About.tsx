@@ -28,9 +28,9 @@ const About: FunctionComponent<AboutProps> = () => {
                             initial={{ translateX: 150 }}
                             whileInView={{ translateX: 0 }}
                         >
-                            <h2 className="text-5xl font-bold tracking-tight text-white sm:text-5xl">About</h2>
+                            <h2 className="text-5xl font-bold tracking-tight text-foreground sm:text-5xl">About</h2>
                         </motion.div>
-                        <p className="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt.
+                        <p className="mt-6 text-lg leading-8">Anim aute id magna aliqua ad ad non deserunt sunt.
                             Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.<br/><br/>
                             Anim aute id magna aliqua ad ad non deserunt sunt.
                             Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.<br/><br/>
@@ -39,7 +39,7 @@ const About: FunctionComponent<AboutProps> = () => {
                         </p>
                     </div>
                     <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                        <div className="grid grid-cols-4 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-white md:flex lg:gap-x-10">
+                        <div className="grid grid-cols-4 gap-x-8 gap-y-6 text-6xl font-semibold leading-7 text-primary md:flex lg:gap-x-10">
                             <Socials/>
                         </div>
                     </div>

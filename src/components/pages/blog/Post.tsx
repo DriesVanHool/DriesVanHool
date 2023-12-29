@@ -16,15 +16,17 @@ const Post: FunctionComponent<PostsProps> = ({post}) => {
             <Card className="max-w-[700px] bg-transparent">
                 <CardHeader className="justify-between">
                     <div className="flex gap-5">
-                        <Avatar isBordered radius="full" size="md" src={dries} />
+                        <Avatar isBordered radius="full" size="md" color="primary" src={dries} />
                         <div className="flex align-middle gap-2 mt-3">
                             <h4 className="font-semibold leading-none text-default-600">@Dries</h4>
-                            <FaLinkedin/>
+                            <a className="text-primary cursor-pointer hover:text-secondary">
+                                <FaLinkedin/>
+                            </a>
                         </div>
                     </div>
                     <h5 className="text-small tracking-tight text-default-400 mt-0 pt-0">{dateToDateShort(post.created_at)}</h5>
                 </CardHeader>
-                <CardBody className="px-3 py-0 text-small text-default-400">
+                <CardBody className="px-3 py-0 text-small ">
                     <Image
                         alt="Post image"
                         className="object-cover rounded-xl mb-3"

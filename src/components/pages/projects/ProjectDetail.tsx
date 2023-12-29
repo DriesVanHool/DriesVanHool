@@ -29,16 +29,16 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = () => {
                  alt={"Project banner"}
                  className="object-cover rounded-t-lg w-screen h-[300px]"
             />
-            <div className="border-1 rounded-b-lg border-primary-50 p-10 space-y-6">
+            <div className="border-1 rounded-b-lg border-primary-200 p-10 space-y-6">
                 <h1 className="text-4xl font-bold tracking-tight text-foreground">{project?.name}</h1>
                 <p>{project?.description}</p>
             </div>
-            <div className="p-10 grid grid-cols-2 w-full justify-between gap-10 border-1 rounded-lg border-primary-50 mt-6">
+            <div className="p-10 grid grid-cols-2 w-full justify-between gap-10 border-1 rounded-lg border-primary-200 mt-6">
                 <div className="col-span-2 sm:col-span-1">
                     <h2 className="text-2xl font-bold tracking-tight text-primary">Toolkit</h2>
                     {
                         project?.tags && project?.tags?.length>0?(
-                            <div className="border rounded-lg border-primary-50 flex flex-wrap my-6 p-6 gap-4">
+                            <div className="border rounded-lg border-primary-200 flex flex-wrap my-6 p-6 gap-4">
                                 {
                                     project.tags.map(projectTag=>(
                                         <TagChip key={`tag${projectTag.tag?.id}`} tag={projectTag.tag}/>

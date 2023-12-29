@@ -50,7 +50,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                             className="z-0 w-full h-full object-cover"
                             src={project.thumbnail??''}
                         />
-                    <ProjectTitle className="text-2xl text-center text-foreground">{project.name}</ProjectTitle>
+                    <ProjectTitle className="text-2xl text-center text-secondary">{project.name}</ProjectTitle>
                 </ImageContainer>
             </Card>
         )

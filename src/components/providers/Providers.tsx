@@ -14,12 +14,22 @@ const queryClient = new QueryClient({
 })
 
 const Providers: FunctionComponent<PropsWithChildren> = ({children}) => {
-
     const navigate = useNavigate()
+
+    //Search saved theme. If no theme is found, set theme according to user preferences
+    let theme = localStorage.getItem('theme')
+    if (!theme){
+        const prefersDark = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+        ).matches;
+        theme = prefersDark?'blue-dark':'blue-light'
+        localStorage.setItem("theme", theme)
+    }
+
     return (
         <QueryClientProvider client={queryClient}>
             <NextUIProvider navigate={navigate}>
-                <ThemeProvider defaultTheme="blue-dark">
+                <ThemeProvider defaultTheme={theme}>
                     {children}
                 </ThemeProvider>
             </NextUIProvider>

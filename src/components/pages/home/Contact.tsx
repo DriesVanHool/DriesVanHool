@@ -44,7 +44,12 @@ const Contact: FunctionComponent = () => {
         <div id="contact">
             <div className="relative isolate overflow-hidden flex justify-center" >
                 <form ref={formRef} onSubmit={handleSubmit(sendEmail)} className="w-full sm:w-1/2 grid grid-cols-2 gap-5">
-                    <SecondayTitle title={"Contact"} styling={"text-center pb-10"}/>
+                    <motion.div
+                        initial={{ translateX: -150 }}
+                        whileInView={{ translateX: 0 }}
+                    >
+                    <SecondayTitle title={"Contact"} styling={"pb-3"}/>
+                    </motion.div>
                     <Input {...register("name")}
                         isClearable onClear={()=>reset({ name: '' })}
                         type="text"
