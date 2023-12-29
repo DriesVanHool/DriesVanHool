@@ -16,7 +16,7 @@ const CustomerCarousel: FunctionComponent<CustomerCarouselProps> = ({customers})
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        maskImage: 'linear-gradient(to right, transparent, black, transparent)',
+        maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
     };
 
     return (
