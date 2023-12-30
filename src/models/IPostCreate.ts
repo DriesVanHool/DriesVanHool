@@ -15,4 +15,5 @@ export interface IPostCreate {
     youtube: string | null
     tags?: IProjectTag[]
     image?: string | null
+    feature_order?: number | null
 }

@@ -35,7 +35,6 @@ const ImageContainer = styled.div`
     `;
 
 const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
-    const featuredProjects:IProject[] = projects.filter(p=>p.featured)
 
     //Project images with link to detailpage. Style mainly used for different colspans
     const ImageCard = (project: IProject, style: string) => {
@@ -66,9 +65,9 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
             </motion.div>
             <div className="w-full gap-5 grid grid-cols-12 grid-rows-2 mx-0 sm:px-8">
                 {
-                    featuredProjects.map(project => (
-                        featuredProjects.indexOf(project)<=4? (
-                            ImageCard(project, featuredProjects.indexOf(project)===0?"sm:col-span-7":"sm:col-span-5")
+                    projects.map(project => (
+                        projects.indexOf(project)<4? (
+                            ImageCard(project, projects.indexOf(project)===0?"sm:col-span-7":"sm:col-span-5")
                         ):null
                     ))
                 }

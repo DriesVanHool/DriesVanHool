@@ -40,7 +40,7 @@ const getProjects = async (): Promise<IProject[]> => {
                 color
               )
             )
-        `)
+        `).order('feature_order')
 
     const {data, error} = await query
 

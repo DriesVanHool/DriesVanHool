@@ -1,4 +1,4 @@
-import {FunctionComponent, useState} from 'react'
+import {FunctionComponent, useEffect, useRef, useState} from 'react'
 import {
     Button,
     Link,
@@ -13,6 +13,7 @@ import {
 import Logo from '../icons/Logo.tsx'
 import ThemeSwitcher from '../utils/ThemeSwitcher.tsx'
 import {IMenuItem} from '../../models/IMenuItem.ts'
+import {useLocation} from 'react-router-dom'
 
 interface NavigationProps {
 
@@ -20,6 +21,16 @@ interface NavigationProps {
 
 const Navigation: FunctionComponent<NavigationProps> = () => {
     const [isMenuOpen, setIsMenuOpen] =useState(false);
+    const location = useLocation();
+    const lastHash = useRef('');
+
+    //Look for anchor change to close menu
+    useEffect(() => {
+        if (lastHash.current !== location.hash.slice(1)) {
+            setIsMenuOpen(false)
+        }
+    }, [location]);
+
 
     const menuItems: IMenuItem[] = [
         {
@@ -49,7 +60,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
     ];
 
     return (
-        <Navbar aria-label="Navigation" maxWidth="xl" shouldHideOnScroll onMenuOpenChange={setIsMenuOpen} className="mt-5">
+        <Navbar aria-label="Navigation" maxWidth="xl" shouldHideOnScroll isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="mt-5">
             {/*Home/icon & mobile toggle*/}
             <NavbarContent>
                 <NavbarMenuToggle

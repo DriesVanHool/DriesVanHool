@@ -11,7 +11,7 @@ const LoadingPage: FunctionComponent = () => {
                 isIndeterminate
                 color="warning"
                 aria-label="Loading..."
-                className="max-w-md"
+                className="max-w-md px-10"
             />
             <p className="text-center mt-3">Loading...</p>
         </div>

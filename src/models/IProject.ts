@@ -19,5 +19,4 @@ export interface IProject{
     customer_id: number | null
     customer?: ICustomer | null
     tags?: IProjectTag[]
-    featured: boolean
 }

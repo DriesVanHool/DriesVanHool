@@ -5,7 +5,7 @@ import {useGetProjectBySlug} from '../../../api/projects.ts'
 import {Avatar, Button, Image, Link, Tooltip} from '@nextui-org/react'
 import {MdPlayArrow} from 'react-icons/md'
 import TagChip from '../../elements/TagChip.tsx'
-import dries from '../../../assets/dries.png'
+import dries from '../../../assets/dries.jpg'
 
 interface ProjectDetailProps {
 
@@ -64,6 +64,8 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = () => {
                     <Image
                         src={project?.image??""}
                         alt={project?.name}
+                        removeWrapper
+                        className="z-0 w-full h-[200px] sm:h-[350px] object-cover"
                     />
                 </div>
             </div>

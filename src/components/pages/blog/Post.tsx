@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react'
 import {IPost} from '../../../models/IPost.ts'
 import {Avatar, Card, CardBody, CardFooter, CardHeader, Image} from '@nextui-org/react'
-import dries from '../../../assets/dries.png'
+import dries from '../../../assets/dries.jpg'
 import TagChip from '../../elements/TagChip.tsx'
 import {FaLinkedin} from 'react-icons/fa'
 import {dateToDateShort} from '../../../utils/dateFormater.ts'
