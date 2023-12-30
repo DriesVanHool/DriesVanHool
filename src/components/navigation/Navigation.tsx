@@ -1,5 +1,6 @@
 import {FunctionComponent, useEffect, useRef, useState} from 'react'
 import {
+    Avatar,
     Button,
     Link,
     Navbar,
@@ -10,10 +11,10 @@ import {
     NavbarMenuItem,
     NavbarMenuToggle
 } from '@nextui-org/react'
-import Logo from '../icons/Logo.tsx'
 import ThemeSwitcher from '../utils/ThemeSwitcher.tsx'
 import {IMenuItem} from '../../models/IMenuItem.ts'
 import {useLocation} from 'react-router-dom'
+import dries from '../../assets/dries.jpg'
 
 interface NavigationProps {
 
@@ -69,7 +70,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
                 />
                 <NavbarBrand>
                     <Link href="/">
-                        <Logo />
+                        <Avatar color="primary" src={dries} isBordered alt="Dries" className="w-12 h-12" />
                     </Link>
                 </NavbarBrand>
             </NavbarContent>

@@ -1,5 +1,5 @@
 import {FunctionComponent, useContext} from 'react'
-import {Button} from '@nextui-org/react'
+import {Button, Link} from '@nextui-org/react'
 import {useScroll, motion, useTransform} from 'framer-motion'
 import { ThemeContext } from '../../providers/ThemeProvider.tsx'
 
@@ -17,7 +17,7 @@ const Banner: FunctionComponent<BannerProps> = () => {
                 <div className="mx-0 sm:max-w-2xl z-10">
                     <h1 className={`text-5xl sm:text-6xl font-bold tracking-tight text-foreground text-center z-0 ${theme==='blue-light'?'mix-blend-overlay':'mix-blend-exclusion'}`}>Full-stack development and digital creations</h1>
                     <div className="flex justify-center pt-16">
-                        <Button color="primary" size={"lg"} variant="bordered" href="/#projects">See what I do</Button>
+                        <Button color="primary" size={"lg"} variant="bordered" as={Link} href="/#projects">See what I do</Button>
                     </div>
                     <motion.div style={{ y: y }}  className={`absolute top-20 left-10 md:top-24 md:left-52 sm:left-20 sm:top-36 w-40 h-40 md:w-80 md:h-80 -z-30 rounded-full ${theme==='blue-light'?'bg-primary':'bg-foreground'}`}></motion.div>
                 </div>
