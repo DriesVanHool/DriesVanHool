@@ -1,11 +1,8 @@
 import {FunctionComponent, useEffect, useRef} from 'react'
 import {useLocation} from 'react-router-dom'
 
-interface ScrollToAnchorProps {
 
-}
-
-const ScrollToAnchor: FunctionComponent<ScrollToAnchorProps> = () => {
+const ScrollToAnchor: FunctionComponent = () => {
     const location = useLocation();
     const lastHash = useRef('');
 

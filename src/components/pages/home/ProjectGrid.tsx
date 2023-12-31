@@ -39,7 +39,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
     //Project images with link to detailpage. Style mainly used for different colspans
     const ImageCard = (project: IProject, style: string) => {
         return (
-            <Card key={project.id} className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer ${style}`}>
+            <Card key={project.id} className={`col-span-12 sm:col-span-4 h-[300px] cursor-pointer rounded-md ${style}`}>
                 <ImageContainer as={Link} href={`/projects/${project.slug}`}>
                         <Image
                             isZoomed
@@ -71,7 +71,7 @@ const ProjectGrid: FunctionComponent<ProjectGridProps> = ({projects}) => {
                         ):null
                     ))
                 }
-
+                {/*More button*/}
                 <motion.a
                     whileHover={{ scale: 1.2 }}
                     href={"/projects"}

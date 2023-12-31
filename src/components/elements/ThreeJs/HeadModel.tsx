@@ -8,7 +8,7 @@ import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js'
 const HeadModel = () => {
     const modelRef = useRef<THREE.Object3D>(null);
 
-    //Using draco loader to optimize loading speed (Big file for a bog head...)
+    //Using draco loader to optimize loading speed (Big file for a big head...)
     const gltf = useLoader(GLTFLoader, 'src/assets/models/head.glb', (loader) => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath('/src/utils/draco/');
@@ -20,6 +20,7 @@ const HeadModel = () => {
     const minRotation = -Math.PI / 4;
     const maxRotation = Math.PI / 4;
 
+    //Movement sensitivity & damping
     const sensitivity = 0.3;
     const damping = 0.1;
 

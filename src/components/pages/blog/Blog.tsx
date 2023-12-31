@@ -20,7 +20,7 @@ const Blog: FunctionComponent<BlogProps> = () => {
 
     return (
         <div>
-            <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-10">Coffee corner</h1>
+            <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl mb-10">Coffee Corner</h1>
             <p className="mb-10 px-6">Feel free to waste your time here and catch up on what I've been up to.</p>
             <div id="posts" className="w-full flex justify-center">
                 {posts?.map(post => (<Post key={post.id} post={post}/>))}

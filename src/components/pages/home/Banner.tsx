@@ -9,6 +9,7 @@ interface BannerProps {
 
 const Banner: FunctionComponent<BannerProps> = () => {
     const {theme} = useContext(ThemeContext)
+    //Scroll control form background circle
     const { scrollYProgress } = useScroll();
     const y = useTransform(scrollYProgress, [0, 1], [0, -200 * 5]);
 
@@ -19,7 +20,7 @@ const Banner: FunctionComponent<BannerProps> = () => {
                     <div className="flex justify-center pt-16">
                         <Button color="primary" size={"lg"} variant="bordered" as={Link} href="/#projects">See what I do</Button>
                     </div>
-                    <motion.div style={{ y: y }}  className={`absolute top-20 left-10 md:top-24 md:left-52 sm:left-20 sm:top-36 w-40 h-40 md:w-80 md:h-80 -z-30 rounded-full ${theme==='blue-light'?'bg-primary':'bg-foreground'}`}></motion.div>
+                    <motion.div style={{ y: y }}  className={`absolute top-20 left-10 md:top-24 md:left-52 sm:left-20 sm:top-36 w-40 h-40 md:w-80 md:h-80 -z-30 rounded-full ${theme==='blue-light'?'bg-focus':'bg-foreground'}`}></motion.div>
                 </div>
         </div>
     )

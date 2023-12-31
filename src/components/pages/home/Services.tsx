@@ -39,24 +39,24 @@ const Services: FunctionComponent = () => {
                 <SecondayTitle title={"I make ..."} styling={"text-left pb-10 pr-10"}/>
             </motion.div>
             <div className="w-full gap-6 grid grid-cols-2">
-                <ServiceCard title={'Custom software (Solutions)'} styling={"row-span-2"} icon={<MdOutlineDashboardCustomize />}>
+                <ServiceCard title={'Custom software'} styling={"row-span-2"} icon={<MdOutlineDashboardCustomize />}>
                     <p>
-                        I have a specialization in the development of distinctive and customized web-based software solutions.
-                        My expertise revolves around the creation of bespoke applications designed to meet the unique requirements and challenges faced by clients.
-                        With a focus on web-based functionality, I excel in streamlining business processes, enhancing online interactions, and addressing specific functionalities.
-                        My skill set allows me to craft web applications that precisely cater to the individual needs of businesses or individuals, ensuring tailored solutions for optimal performance and efficiency.
+                        Crafting <strong>tailored</strong> solutions for your unique needs. Imagine software designed exclusively for your business, streamlining operations, and boosting efficiency.<br/><br/>
+                        From robust databases to intuitive interfaces, I specialize in turning your requirements into functional, user-friendly applications.
+                        Whether you're in need of a <strong>scalable system or a custom application</strong> to optimize daily tasks, I bring my of experience to the table.<br/><br/>
+                        My commitment is to deliver software that not only meets but exceeds your expectations, ensuring a seamless integration into your workflow.
+                        Let's elevate your business with software that's as distinctive as your vision.
                     </p>
                 </ServiceCard>
-                <ServiceCard title={'Websites & shops (products)'} icon={<MdOutlineWeb/>}>
+                <ServiceCard title={'Websites & shops'} icon={<MdOutlineWeb/>}>
                     <p>
-                        I specialize in crafting online experiences, from designing and developing websites to creating e-commerce platforms.
-                        My expertise extends from visually appealing websites to secure virtual storefronts, helping clients establish a strong digital presence and enhance online commerce.
+                        Creating websites and online shops that captivate audiences and drive results.In the digital landscape, your online presence is your first impression.<br/>
+                        From responsive designs that adapt seamlessly to various devices to <strong>intuitive e-commerce platforms</strong>, I combine aesthetics with functionality.
                     </p>
                 </ServiceCard>
-                <ServiceCard title={'Digital experiences (experiences)'} icon={<MdOutlineVideogameAsset  />}>
+                <ServiceCard title={'Digital experiences'} icon={<MdOutlineVideogameAsset  />}>
                     <p>
-                        I design digital experiences beyond websites and apps, from engaging games to immersive 3D environments.
-                        My goal is to offer diverse and interactive online solutions, whether for entertainment, user engagement, or creating captivating virtual spaces, enhancing the overall online experience.
+                        Designing digital experiences and immersive <strong>multimedia content</strong>. Whether it's a small interactive game, or a multimedia campaign, I fuse technology with creativity to make a lasting impact.
                     </p>
                 </ServiceCard>
             </div>

@@ -53,7 +53,7 @@ const Navigation: FunctionComponent<NavigationProps> = () => {
             icon: null
         },
         {
-            title: "Coffee corner",
+            title: "Coffee Corner",
             ref: "/coffee-corner",
             isActive: false,
             icon: <span className="ml-0.5">&#9749;</span>

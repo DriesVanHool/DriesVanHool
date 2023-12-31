@@ -29,7 +29,7 @@ const Post: FunctionComponent<PostsProps> = ({post}) => {
                 <CardBody className="px-3 py-0 text-small ">
                     <Image
                         alt="Post image"
-                        className="object-cover rounded-xl mb-3"
+                        className="h-64 object-cover rounded-xl mb-3"
                         src={post.image??""}
                         width={"100%"}
                     />

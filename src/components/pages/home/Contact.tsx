@@ -91,8 +91,10 @@ const Contact: FunctionComponent = () => {
                             input: "resize-y min-h-[200px]",
                         }}
                     />
-                    <Button type="submit" className="col-span-2 sm:col-start-2 sm:col-span-1" color="primary"
-                            variant="bordered">Confirm</Button>
+                    <div className="col-span-2 flex justify-center">
+                        <Button type="submit" className="w-full sm:w-[300px]" color="primary"
+                                variant="bordered">Confirm</Button>
+                    </div>
                 </form>
                 {
                     messageSend && (

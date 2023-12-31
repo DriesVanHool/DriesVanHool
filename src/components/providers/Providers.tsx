@@ -16,13 +16,10 @@ const queryClient = new QueryClient({
 const Providers: FunctionComponent<PropsWithChildren> = ({children}) => {
     const navigate = useNavigate()
 
-    //Search saved theme. If no theme is found, set theme according to user preferences
+    //Search saved theme. If no theme is found, set default dark
     let theme = localStorage.getItem('theme')
     if (!theme){
-        const prefersDark = window.matchMedia(
-            '(prefers-color-scheme: dark)'
-        ).matches;
-        theme = prefersDark?'blue-dark':'blue-light'
+        theme = 'blue-dark'
         localStorage.setItem("theme", theme)
     }
 
