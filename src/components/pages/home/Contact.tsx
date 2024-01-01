@@ -1,5 +1,5 @@
 import {FunctionComponent, useRef, useState} from 'react'
-import {Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Textarea} from '@nextui-org/react'
+import {Button, Input, Textarea} from '@nextui-org/react'
 import SecondayTitle from '../../elements/SecondayTitle.tsx'
 import emailjs from '@emailjs/browser'
 import {IContactForm} from '../../../models/IContactForm.ts'
@@ -7,9 +7,9 @@ import z, {ZodType} from 'zod'
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import ConfettiExplosion from 'react-confetti-explosion'
-import { motion } from 'framer-motion'
+import {motion} from 'framer-motion'
 
-const emailServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID
+const emailServiceId =  import.meta.env.VITE_EMAIL_SERVICE_ID
 const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
 const emailPublicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY
 
@@ -29,13 +29,13 @@ const Contact: FunctionComponent = () => {
     const sendEmail = () => {
         //Email expects a HTMLFormElement
         //Real mailing commented for testing purposes
-/*        emailjs.sendForm(emailServiceId, emailTemplateId, formRef.current??'', emailPublicKey)
+        emailjs.sendForm(emailServiceId??'', emailTemplateId??'', formRef.current??'', emailPublicKey)
             .then(() => {
                 reset()
                 setMessageSend(true)
             }, (error) => {
                 console.log(error);
-            });*/
+            });
         setMessageSend(true)
         reset()
     };
