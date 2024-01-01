@@ -11,7 +11,7 @@ const HeadModel = () => {
     //Using draco loader to optimize loading speed (Big file for a big head...)
     const gltf = useLoader(GLTFLoader, '/models/head.glb', (loader) => {
         const dracoLoader = new DRACOLoader();
-        dracoLoader.setDecoderPath('/src/utils/draco/');
+        dracoLoader.setDecoderPath('/draco/');
         loader.setDRACOLoader(dracoLoader);
     });
 
