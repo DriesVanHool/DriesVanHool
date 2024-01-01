@@ -1,0 +1,4 @@
+<!-- sample rectangle -->
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="175" fill="#4C8BB7" font-family="Arial" font-size="14em" font-weight="700">D</text>
+</svg>

@@ -9,7 +9,7 @@ const HeadModel = () => {
     const modelRef = useRef<THREE.Object3D>(null);
 
     //Using draco loader to optimize loading speed (Big file for a big head...)
-    const gltf = useLoader(GLTFLoader, '/src/assets/models/head.glb', (loader) => {
+    const gltf = useLoader(GLTFLoader, '/models/head.glb', (loader) => {
         const dracoLoader = new DRACOLoader();
         dracoLoader.setDecoderPath('/src/utils/draco/');
         loader.setDRACOLoader(dracoLoader);
