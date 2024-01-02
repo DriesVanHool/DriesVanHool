@@ -71,15 +71,17 @@ const ProjectOverview: FunctionComponent = () => {
                 {/*Filters*/}
                 <div className="col-span-2 sm:space-x-6 space-y-6">
                     <Select
+                        id="categories"
                         items={categories}
                         label="Category"
                         placeholder="Select a category"
                         className="w-full sm:max-w-[200px]"
                         onChange={handleChangeCategory}
                     >
-                        {(category) => <SelectItem key={category.id}>{category.name}</SelectItem>}
+                        {(category) => <SelectItem key={`selecteCategory${category.id}`}>{category.name}</SelectItem>}
                     </Select>
                     <Select
+                        id="tags"
                         items={tags}
                         label="Project tags"
                         placeholder="Search by tags"
@@ -88,7 +90,7 @@ const ProjectOverview: FunctionComponent = () => {
                         onChange={handleChangeTags}
                     >
                         {(tag) => (
-                            <SelectItem key={tag.id} value={tag.id}>
+                            <SelectItem key={`selectTag${tag.id}`} value={tag.id}>
                                 {tag.name}
                             </SelectItem>
                         )}
@@ -98,6 +100,7 @@ const ProjectOverview: FunctionComponent = () => {
                 <ListboxWrapper styling={'col-span-2 sm:col-span-1'}>
                     {/*NextUI mapping handeled with listbox items*/}
                     <Listbox variant="faded"
+                             id="projectList"
                              items={filterProjects()}
                              classNames={{
                                  base: "h-[500px]",
@@ -109,8 +112,8 @@ const ProjectOverview: FunctionComponent = () => {
                                 <p className="text-xl">{project.name}</p>
                                 <div className="flex flex-wrap gap-4 py-3 justify-end">
                                     {
-                                        project.tags?.map(projectTag=>(
-                                                <TagChip key={`tag${projectTag.tag?.id}`} tag={projectTag.tag}/>
+                                        project.tags?.map((projectTag, i)=>(
+                                                <TagChip key={`project${project.id}tag${i}`} tag={projectTag.tag}/>
                                             )
                                         )
                                     }
