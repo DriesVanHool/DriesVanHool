@@ -31,7 +31,7 @@ const About: FunctionComponent<AboutProps> = () => {
                             <h2 className="text-5xl font-bold tracking-tight text-foreground sm:text-5xl">About</h2>
                         </motion.div>
                         <p className="mt-6 text-lg leading-8">I am <strong>Dries</strong>, a software engineer based in Belgium.<br/><br/>
-                            My goal is to and shape ideas into seamless digital experiences. With a wide range of interests, you can find me on both the back and front sides of the development spectrum.<br/><br/>
+                            My goal is to shape ideas into seamless digital experiences. With a wide range of interests, you can find me on both the back and front sides of the development spectrum.<br/><br/>
                             If you have an idea, <Link href="/#contact" className="font-bold underline">contact</Link> me for a solution.
                         </p>
                     </div>

@@ -78,7 +78,7 @@ const ProjectOverview: FunctionComponent = () => {
                         className="w-full sm:max-w-[200px]"
                         onChange={handleChangeCategory}
                     >
-                        {(category) => <SelectItem key={`selecteCategory${category.id}`}>{category.name}</SelectItem>}
+                        {(category) => <SelectItem key={category.id}>{category.name}</SelectItem>}
                     </Select>
                     <Select
                         id="tags"
@@ -90,7 +90,7 @@ const ProjectOverview: FunctionComponent = () => {
                         onChange={handleChangeTags}
                     >
                         {(tag) => (
-                            <SelectItem key={`selectTag${tag.id}`} value={tag.id}>
+                            <SelectItem key={tag.id} value={tag.id}>
                                 {tag.name}
                             </SelectItem>
                         )}
