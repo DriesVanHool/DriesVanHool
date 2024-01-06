@@ -14,6 +14,7 @@ export interface IPost {
     medium: string | null
     linkedin: string | null
     youtube: string | null
+    url: string | null
     tags?: IProjectTag[]
     image?: string | null
 }

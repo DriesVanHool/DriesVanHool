@@ -27,7 +27,7 @@ const getPosts = async (): Promise<IPost[]> => {
                 color
               )
             )
-        `).order('created_at')
+        `).order('created_at', { ascending: false })
 
     const {data, error} = await query
 
