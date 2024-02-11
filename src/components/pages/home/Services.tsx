@@ -43,7 +43,7 @@ const Services: FunctionComponent = () => {
                     <p>
                         Crafting <strong>tailored</strong> solutions for your unique needs. Imagine software designed exclusively for your business, streamlining operations, and boosting efficiency.<br/><br/>
                         From robust databases to intuitive interfaces, I specialize in turning your requirements into functional, user-friendly applications.
-                        Whether you're in need of a <strong>scalable system or a custom application</strong> to optimize daily tasks, I bring my of experience to the table.<br/><br/>
+                        Whether you're in need of a <strong>scalable system or a custom application</strong> to optimize daily tasks, I bring my expertise to the table.<br/><br/>
                         My commitment is to deliver software that not only meets but exceeds your expectations, ensuring a seamless integration into your workflow.
                         Let's elevate your business with software that's as distinctive as your vision.
                     </p>
