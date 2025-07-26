@@ -15,10 +15,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/DriesVanHool/DriesVanHool.git'
+                git branch: 'main', url: 'https://github.com/DriesVanHool/DriesVanHool.git'
             }
         }
-
         stage('Inject .env') {
             steps {
                 withCredentials([file(credentialsId: 'dries-env', variable: 'ENV_FILE')]) {
