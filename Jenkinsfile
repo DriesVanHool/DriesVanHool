@@ -1,44 +1,41 @@
 pipeline {
-    agent any
+  agent any
 
-    environment {
-        IMAGE_NAME = "dries-app"
-        CONTAINER_NAME = "dries-app"
-        HOST_PORT = "5173"
-        CONTAINER_PORT = "80"
+  environment {
+    CI = 'true'
+  }
+
+  stages {
+    stage('Clone') {
+      steps {
+        git 'https://github.com/DriesVanHool/DriesVanHool.git'
+      }
     }
 
-    triggers {
-        githubPush()
-    }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/DriesVanHool/DriesVanHool.git'
-            }
-        }
-        stage('Inject .env') {
-            steps {
-                withCredentials([file(credentialsId: 'dries-env', variable: 'ENV_FILE')]) {
-                    sh 'cp $ENV_FILE .env'
-                }
-            }
-        }
-
-        stage('Build Image') {
-            steps {
-                sh 'podman build -t dries-app .'
-            }
-        }
-
-        stage('Run Container') {
-            steps {
-                sh '''
-                podman rm -f $CONTAINER_NAME || true
-                podman run -d --name $CONTAINER_NAME -p $HOST_PORT:$CONTAINER_PORT $IMAGE_NAME
-                '''
+    stage('Inject .env') {
+        steps {
+            withCredentials([file(credentialsId: 'dries-env', variable: 'ENV_FILE')]) {
+                sh 'cp $ENV_FILE .env'
             }
         }
     }
+
+    stage('Build React App') {
+      steps {
+        sh 'npm install'
+        sh 'npm run build'
+      }
+    }
+
+    stage('Docker Build & Restart') {
+      steps {
+        sh 'docker build -t react-app ./'
+        sh 'docker stop react-app || true'
+        sh 'docker rm react-app || true'
+        sh 'docker run -d --name react-app -p 3000:3000 react-app'
+      }
+    }
+  }
 }
+

@@ -1,13 +1,12 @@
-# Build stage
-FROM node:18-alpine AS builder
+# react-app/Dockerfile
+FROM node:18
+
 WORKDIR /app
 COPY . .
-COPY .env .env
+
 RUN npm install
 RUN npm run build
+RUN npm install -g serve
 
-# Serve stage with NGINX
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+CMD ["serve", "-s", "dist", "-l", "3000"]
