@@ -6,9 +6,9 @@ pipeline {
   }
 
   stages {
-    stage('Clone') {
+    stage('Checkout') {
       steps {
-        git 'https://github.com/DriesVanHool/DriesVanHool.git'
+        git branch: 'main', url: 'https://github.com/DriesVanHool/DriesVanHool.git'
       }
     }
 
