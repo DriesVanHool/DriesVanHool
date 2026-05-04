@@ -8,9 +8,9 @@
 Homepage website
 `React` `Typescript`
 
-### ✈️ [flightlogger](https://github.com/DriesVanHool/flightlogger)
-Kotlin REST API backend with a React frontend for tracking flights.
-`Kotlin` `Gradle` `React`
+### 🧰 [FullstackMicrostarter](https://github.com/DriesVanHool/FullstackMicrostarter)
+Java REST Microservices API backend with a React frontend.
+`Java` `Maven` `React` `Keycloak`
 
 ### 🔌 [lazyports](https://github.com/DriesVanHool/lazyports)
 CLI/TUI for seeing what's using your ports and killing it fast. Cross-platform, written in Go.
